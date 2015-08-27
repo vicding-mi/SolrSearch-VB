@@ -18,7 +18,9 @@ class SolrSearch_ResultsController
      */
     public function init()
     {
+        _log("RESULTS CONTROLLER INIT");
         $this->_fields = $this->_helper->db->getTable('SolrSearchField');
+        $this->session = new Zend_Session_Namespace();
     }
 
 
@@ -33,17 +35,57 @@ class SolrSearch_ResultsController
     }
 
 
+    public function resultListAction()
+    {
+    
+        // Get pagination settings.
+        $limit = get_option('per_page_public');
+        
+        $this->session->page_nr += 1;
+        $page  = $this->session->page_nr;
+        $start = ($page-1) * $limit;
+
+        _log("----------------");
+        _log("page nr: " + $this->session->page_nr);
+        _log("limit: " + $limit);
+        _log("start: " + $start);
+
+        // determine whether to display private items or not
+        // items will only be displayed if:
+        // solr_search_display_private_items has been enabled in the Solr Search admin panel
+        // user is logged in
+        // user_role has sufficient permissions
+
+        $user = current_user();
+        if(get_option('solr_search_display_private_items')
+            && $user
+            && is_allowed('Items','showNotPublic')) {
+            // limit to public items
+            $limitToPublicItems = false;
+        } else {
+            $limitToPublicItems = true;
+        }
+
+        // Execute the query.
+        $results = $this->_session_search($start, $limit, $limitToPublicItems);
+
+        // Push results to the view.
+        $this->view->results = $results;
+    }
+    
+
     /**
      * Display Solr results.
      */
     public function indexAction()
     {
-
+        
+        _log("index action");
+        
         // Get pagination settings.
         $limit = get_option('per_page_public');
         $page  = $this->_request->page ? $this->_request->page : 1;
         $start = ($page-1) * $limit;
-
 
         // determine whether to display private items or not
         // items will only be displayed if:
@@ -72,10 +114,38 @@ class SolrSearch_ResultsController
         ));
 
         // Push results to the view.
+        $this->session->page_nr = 1;
         $this->view->results = $results;
 
     }
 
+
+    /**
+     * Pass setting to Solr search
+     *
+     * @param int $offset Results offset
+     * @param int $limit  Limit per page
+     * @return SolrResultDoc Solr results
+     */
+    protected function _session_search($offset, $limit, $limitToPublicItems = true)
+    {
+
+        // Connect to Solr.
+        $solr = SolrSearch_Helpers_Index::connect();
+
+        // Get the parameters.
+        $params = $this->_getParameters();
+
+        // Construct the query.
+        $query = $this->session->query;
+
+        _log(print_r($params, true));
+        _log(print_r($query, true));
+
+        // Execute the query.
+        return $solr->search($query, $offset, $limit, $params);
+
+    }
 
     /**
      * Pass setting to Solr search
@@ -95,6 +165,9 @@ class SolrSearch_ResultsController
 
         // Construct the query.
         $query = $this->_getQuery($limitToPublicItems);
+
+        _log(print_r($params, true));
+        _log(print_r($query, true));
 
         // Execute the query.
         return $solr->search($query, $offset, $limit, $params);
@@ -136,6 +209,7 @@ class SolrSearch_ResultsController
            $query .= ' AND public:"true"';
         }
 
+        $this->session->query = $query;
         return $query;
 
     }

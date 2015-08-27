@@ -1,0 +1,7 @@
+{
+    "geolocations": {
+        "table"       : "Location",
+        "result_type" : "Location",
+        "fields"      : ["item_id", "latitude", "longitude", "zoom_level", "map_type", "address", "route", "street_number", "postal_code", "postal_code_prefix", "sublocality", "locality", "natural_feature", "establishment", "point_of_interest", "administrative_area_level_3", "administrative_area_level_2", "administrative_area_level_1", "country", "continent", "planetary_body"]
+    }
+}

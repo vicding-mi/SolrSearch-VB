@@ -89,19 +89,280 @@
      default: a value that should be used if no value is specified
        when adding a document.
    -->
+   
+    <!-- predefine all fields to be able to clone them to the named fields-->
+    
+    <field name="1_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="2_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="3_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="4_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="5_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="6_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="7_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="8_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="9_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="10_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="11_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="12_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="13_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="14_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="15_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="16_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="17_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="18_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="19_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="20_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="21_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="22_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="23_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="24_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="25_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="26_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="27_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="url" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="28_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="29_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="30_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="31_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="32_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="33_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="34_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="35_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="36_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="contributor" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="37_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="coverage" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="38_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="creator" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="39_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="date_start" type="date" indexed="true" stored="true" multiValued="true"/>
+    <field name="date_end" type="date" indexed="true" stored="true" multiValued="true"/>
+    <field name="date" type="text_ws" indexed="true" stored="true" multiValued="true"/> <!-- PRE-SPLIT splitBy=" "  -->
+    <field name="40_s" type="text_ws" indexed="true" stored="true" multiValued="true"/>
+    <field name="description" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="41_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="42_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="identifier" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="43_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="language" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="44_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="45_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="relation" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="46_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="rights" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="47_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="source" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="48_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="subject" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="49_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="50_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="type" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="51_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="motif" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="52_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="comments" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="53_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="54_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="55_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="56_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="57_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="subgenre" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="58_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="entry_date" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="59_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="collector" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="60_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="literary" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="61_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="extreme" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="62_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="named_entity" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="63_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="64_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="place_of_action" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="65_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="named_entity_actor" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="66_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="corpus" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="67_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="kloeke_georeference" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="68_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="kloeke_georeference_in_text" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="69_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="70_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="71_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="72_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="73_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="74_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="75_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="76_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="77_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="78_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="79_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="80_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="81_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="82_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="83_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="84_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="85_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="86_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="87_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="88_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="89_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="90_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="91_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="92_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="named_entity_location" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="93_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="word_count" type="int" indexed="true" stored="true" multiValued="true"/>
+    <field name="94_s" type="int" indexed="true" stored="true" multiValued="true"/>
+    <field name="word_count_group" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="95_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="96_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="97_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="98_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="99_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="100_s" type="string" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="main_text" type="text_general" indexed="true" stored="true" multiValued="true"/>
+    <field name="1_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="2_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="3_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="4_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="5_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="6_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="7_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="8_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="9_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="10_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="11_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="12_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="13_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="14_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="15_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="16_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="17_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="18_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="19_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="20_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="21_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="22_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="23_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="24_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="25_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="26_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="27_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="28_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="29_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="30_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="31_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="32_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="33_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="34_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="35_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="36_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="37_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="38_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="39_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="40_t" type="text_ws" indexed="true" stored="true" multiValued="true"/>
+    <field name="41_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="42_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="43_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="44_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="45_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="46_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="47_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="48_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="49_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="50_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="51_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="52_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="53_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="54_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="55_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="56_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="57_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="58_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="59_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="60_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="61_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="62_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="63_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="64_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="65_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="66_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="67_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="68_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="69_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="70_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="71_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="72_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="73_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="74_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="75_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="76_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="77_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="78_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="79_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="80_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="81_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="82_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="83_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="84_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="85_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="86_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="87_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="88_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="89_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="90_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="91_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="92_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="93_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="94_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="95_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="96_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="97_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="98_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="99_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="100_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
 
     <field name="id" type="string" indexed="true" stored="true" required="true" /> 
     <field name="title" type="text_en" indexed="true" stored="true" multiValued="true" />
     <field name="tag" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="collection" type="string" indexed="true" stored="true" />
+    <field name="collection_id" type="int" indexed="true" stored="true" />
     <field name="public" type="boolean" indexed="true" stored="true" />
     <field name="featured" type="boolean" indexed="true" stored="true" />
     <field name="itemtype" type="string" indexed="true" stored="true" />
+    <field name="itemtype_id" type="int" indexed="true" stored="true" />
     <field name="resulttype" type="string" indexed="true" stored="true" />
     <field name="model" type="string" indexed="false" stored="true" />
-    <field name="modelid" type="string" indexed="false" stored="true" />
+    <field name="modelid" type="string" indexed="true" stored="true" />
     <field name="text" type="text_en" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
+
+    <!-- geologic information merged-->
+    <field name="latitude" type="float" indexed="true" stored="true"/>
+    <field name="longitude" type="float" indexed="true" stored="true"/>
+    <field name="zoom_level" type="int" indexed="true" stored="true"/>
+    <field name="map_type" type="string" indexed="true" stored="true"/>
+    <field name="address" type="string" indexed="true" stored="true"/>
+    <field name="route" type="string" indexed="true" stored="true"/>
+    <field name="street_number" type="string" indexed="true" stored="true"/>
+    <field name="postal_code"  type="string" indexed="true" stored="true"/>
+    <field name="postal_code_prefix" type="string" indexed="true" stored="true"/>
+    <field name="sublocality" type="string" indexed="true" stored="true"/>
+    <field name="locality" type="string" indexed="true" stored="true"/>
+    <field name="natural_feature" type="string" indexed="true" stored="true"/>
+    <field name="establishment" type="string" indexed="true" stored="true"/>
+    <field name="point_of_interest" type="string" indexed="true" stored="true"/>
+    <field name="administrative_area_level_3" type="string" indexed="true" stored="true"/>
+    <field name="administrative_area_level_2" type="string" indexed="true" stored="true"/>
+    <field name="administrative_area_level_1" type="string" indexed="true" stored="true"/>
+    <field name="country" type="string" indexed="true" stored="true"/>
+    <field name="continent" type="string" indexed="true" stored="true"/>
+    <field name="planetary_body" type="string" indexed="true" stored="true"/>
+
 
     <dynamicField name="*_t" type="text_en" indexed="true" stored="true" multiValued="true" />
     <dynamicField name="*_s" type="string" indexed="true" stored="true" multiValued="true" />
@@ -120,6 +381,38 @@
   <copyField source="itemtype" dest="text" />
   <copyField source="resulttype" dest="text" />
   <copyField source="title" dest="text" />
+
+  <copyField source="1_t" dest="main_text" />
+  <copyField source="28_t" dest="url" />
+  <copyField source="37_t" dest="contributor" />
+  <copyField source="38_t" dest="coverage" />
+  <copyField source="39_t" dest="creator" />
+  <copyField source="40_t" dest="date" />
+  <copyField source="41_t" dest="description" />
+  <copyField source="43_t" dest="identifier" />
+  <copyField source="44_t" dest="language" />
+  <copyField source="46_t" dest="relation" />
+  <copyField source="47_t" dest="rights" />
+  <copyField source="48_t" dest="source" />
+  <copyField source="49_t" dest="subject" />
+  <copyField source="51_t" dest="type" />
+  <copyField source="52_t" dest="motif" />
+  <copyField source="53_t" dest="comments" />
+  <copyField source="58_t" dest="subgenre" />
+  <copyField source="59_t" dest="entry_date" />
+  <copyField source="60_t" dest="collector" />
+  <copyField source="61_t" dest="literary" />
+  <copyField source="62_t" dest="extreme" />
+  <copyField source="63_t" dest="named_entity" />
+  <copyField source="65_t" dest="place_of_action" />
+  <copyField source="66_t" dest="named_entity_actor" />
+  <copyField source="67_t" dest="corpus" />
+  <copyField source="68_t" dest="kloeke_georeference" />
+  <copyField source="69_t" dest="kloeke_georeference_in_text" />
+  <copyField source="93_t" dest="named_entity_location" />
+  <copyField source="94_t" dest="word_count" />
+  <copyField source="95_t" dest="word_count_group" />
+
 
  <!-- DEPRECATED: The defaultSearchField is consulted by various query parsers when
   parsing a query string that isn't explicit about the field.  Machine (non-user)

@@ -65,6 +65,29 @@ class SolrSearch_Helpers_Index
         }
     }
 
+    public static function date_supplement($date){
+        if ($date == "99-99-99") return false;
+        $date .= "T12:00:00Z";
+        return $date;
+    }
+
+    public static function validate($date){
+        if (preg_match('/^\d{4}.\\d{2}.\\d{2}\s\d{4}.\\d{2}.\\d{2}$/', $date)){
+            $date_span = explode(' ', $date, 2);
+            list($yy,$mm,$dd) = explode("-",$date_span[0]);
+            list($yy2,$mm2,$dd2) = explode("-",$date_span[1]);
+            if(checkdate($mm,$dd,$yy) AND checkdate($mm2,$dd2,$yy2)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
 
     /**
      * This takes an Omeka_Record instance and returns a populated
@@ -99,7 +122,7 @@ class SolrSearch_Helpers_Index
         // Tags:
         foreach ($item->getTags() as $tag) {
             $doc->setMultiValue('tag', $tag->name);
-        }
+        }   
 
         // Collection:
         if ($collection = $item->getCollection()) {
@@ -115,10 +138,61 @@ class SolrSearch_Helpers_Index
 
         $doc->featured = (bool) $item->featured;
 
-        // File metadata
-        foreach ($item->getFiles() as $file) {
-            self::indexItem($fields, $file, $doc);
+        // File metadata (this is weird)
+//        foreach ($item->getFiles() as $file) {
+//            self::indexItem($fields, $file, $doc);
+//        }
+
+###############################################################################
+        //ADDITION FOR VISUALIZATIONS
+        if ($itemType = $item->getItemType()) {
+            $doc->setField('itemtype_id', $item->item_type_id);
         }
+        if ($collection = $item->getCollection()) {
+            $doc->setField('collection_id', $item->collection_id);
+        }
+
+        // Start and end date(s):
+        $date = metadata($item, array('Dublin Core', 'Date'));
+        if (self::validate($date)){
+            $date_span = explode(' ', $date, 2);
+            if (count($date_span) == 2){
+                $doc->setField('date_start', self::date_supplement($date_span[0]));
+                $doc->setField('date_end', self::date_supplement($date_span[1]));
+            }
+            elseif (count($date_span) == 1){
+                $doc->setField('date_start', self::date_supplement($date_span[0]));
+                $doc->setField('date_end', self::date_supplement($date_span[0]));
+            }
+        }
+
+        //Locations
+        $db     = get_db();
+        $location = $db->getTable('Location')->findLocationByItem($item, true);
+
+        if ($location){
+            $doc->setField("latitude", $location->latitude);
+            $doc->setField("longitude", $location->longitude);
+            $doc->setField("zoom_level", $location->zoom_level);
+            $doc->setField("map_type", $location->map_type);
+            $doc->setField("address", $location->address);
+            $doc->setField("route", $location->route);
+            $doc->setField("street_number", $location->street_number);
+            $doc->setField("postal_code", $location->postal_code);
+            $doc->setField("postal_code_prefix", $location->postal_code_prefix);
+            $doc->setField("sublocality", $location->sublocality);
+            $doc->setField("locality", $location->locality);
+            $doc->setField("natural_feature", $location->natural_feature);
+            $doc->setField("establishment", $location->establishment);
+            $doc->setField("point_of_interest", $location->point_of_interest);
+            $doc->setField("administrative_area_level_3", $location->administrative_area_level_3);
+            $doc->setField("administrative_area_level_2", $location->administrative_area_level_2);
+            $doc->setField("administrative_area_level_1", $location->administrative_area_level_1);
+            $doc->setField("country", $location->country);
+            $doc->setField("continent", $location->continent);
+            $doc->setField("planetary_body", $location->planetary_body);
+        }
+###############################################################################
 
         return $doc;
 

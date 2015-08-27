@@ -9,39 +9,78 @@
 
 ?>
 
-
+<?php //queue_js_file('pagination'); ?>
 <?php queue_css_file('results'); ?>
+
 <?php echo head(array('title' => __('Solr Search')));?>
 
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+// TinyMCE hates document.ready.
+jQuery(window).load(function () {
+    loadImageURL = <?php echo js_escape(img("ajax-loader.gif")); ?>;
+
+    resultList = <?php echo js_escape(url('solr-search/results/result-list')); ?>;
+
+    jQuery(window).scroll(function()
+    {
+        if(jQuery(window).scrollTop() == jQuery(document).height() - jQuery(window).height())
+        {
+            console.log("scrolled down");
+            jQuery('div#loadmoreajaxloader').show();
+            jQuery.ajax({
+            url: resultList,
+            success: function(html){
+                console.log("ajaxed");
+                if(html)
+                {
+                    jQuery("#solr-results").append(html);
+                    jQuery('div#loadmoreajaxloader').hide();
+                }else
+                {
+                    jQuery('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+                }
+            }
+            });
+        }
+    });
+});
+//]]>
+</script>
 
 <h1><?php echo __('Search the Collection'); ?></h1>
 
-
 <!-- Search form. -->
-<div class="solr">
   <form id="solr-search-form">
-    <input type="submit" value="Search" />
     <span class="float-wrap">
-      <input type="text" title="<?php echo __('Search keywords') ?>" name="q" value="<?php
+      <input style="width:350px" type="text" title="<?php echo __('Search keywords') ?>" name="q" value="<?php
         echo array_key_exists('q', $_GET) ? $_GET['q'] : '';
       ?>" />
+      <input type="submit" value="<?php echo __("Search"); ?>" />&nbsp&nbsp
+      <?php echo link_to_item_search(__('Advanced Search')); ?>
     </span>
   </form>
-</div>
 
+<br>
 
 <!-- Applied facets. -->
-<div id="solr-applied-facets">
+<div id="solr-applied-facets" style="padding-top:4px; padding-left:4px">
 
   <ul>
+    <?php if (!SolrSearch_Helpers_Facet::parseFacets()):?>
+        <li>
+            <span class="applied-facet-label"> Geen filters geselecteerd</span>
+        </li>
+
+    <?php endif; ?>
 
     <!-- Get the applied facets. -->
     <?php foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): ?>
-      <li>
+      <li   >
 
         <!-- Facet label. -->
         <?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
-        <span class="applied-facet-label"><?php echo $label; ?></span> >
+        <span class="applied-facet-label"><b><?php echo $label; ?></b></span>: 
         <span class="applied-facet-value"><?php echo $f[1]; ?></span>
 
         <!-- Remove link. -->
@@ -67,7 +106,7 @@
     <?php if (count(get_object_vars($facets))): ?>
 
       <!-- Facet label. -->
-      <?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
+      <?php $label = __(SolrSearch_Helpers_Facet::keyToLabel($name)); ?>
       <strong><?php echo $label; ?></strong>
 
       <ul>
@@ -101,61 +140,13 @@
 
   <!-- Number found. -->
   <h2 id="num-found">
-    <?php echo $results->response->numFound; ?> results
+    <?php echo $results->response->numFound . __(" results for \"") . (array_key_exists('q', $_GET) ? $_GET['q'] : '') . "\""; ?>
   </h2>
 
-  <?php foreach ($results->response->docs as $doc): ?>
-
-    <!-- Document. -->
-    <div class="result">
-
-      <!-- Header. -->
-      <div class="result-header">
-
-        <!-- Record URL. -->
-        <?php $url = SolrSearch_Helpers_View::getDocumentUrl($doc); ?>
-
-        <!-- Title. -->
-        <a href="<?php echo $url; ?>" class="result-title"><?php
-                $title = is_array($doc->title) ? $doc->title[0] : $doc->title;
-                if (empty($title)) {
-                    $title = '<i>' . __('Untitled') . '</i>';
-                }
-                echo $title;
-            ?></a>
-
-        <!-- Result type. -->
-        <span class="result-type">(<?php echo $doc->resulttype; ?>)</span>
-
-      </div>
-
-      <!-- Highlighting. -->
-      <?php if (get_option('solr_search_hl')): ?>
-        <ul class="hl">
-          <?php foreach($results->highlighting->{$doc->id} as $field): ?>
-            <?php foreach($field as $hl): ?>
-              <li class="snippet"><?php echo strip_tags($hl, '<em>'); ?></li>
-            <?php endforeach; ?>
-          <?php endforeach; ?>
-        </ul>
-      <?php endif; ?>
-
-      <?php
-        $item = get_db()->getTable($doc->model)->find($doc->modelid);
-        echo item_image_gallery(
-            array('wrapper' => array('class' => 'gallery')),
-            'square_thumbnail',
-            false,
-            $item
-        );
-      ?>
-
-    </div>
-
-  <?php endforeach; ?>
+  <?php include 'result-list.php';?>
 
 </div>
+<div style="border:0px" id="loadmoreajaxloader" style="display:none;"><center><img src="<?php echo img('ajax-loader.gif'); ?>" /></center></div>
 
-
-<?php echo pagination_links(); ?>
+<?php //echo pagination_links(); ?>
 <?php echo foot();
