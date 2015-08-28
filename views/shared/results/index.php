@@ -16,28 +16,22 @@
 
 <script type="text/javascript" charset="utf-8">
 //<![CDATA[
-// TinyMCE hates document.ready.
+//For automatic pagination
 jQuery(window).load(function () {
     loadImageURL = <?php echo js_escape(img("ajax-loader.gif")); ?>;
 
-    resultList = <?php echo js_escape(url('solr-search/results/result-list')); ?>;
+    resultList = <?php echo js_escape(url('solr-search/results/result-list')); ?>; //defining the result list php
 
-    jQuery(window).scroll(function()
-    {
-        if(jQuery(window).scrollTop() == jQuery(document).height() - jQuery(window).height())
-        {
-            console.log("scrolled down");
+    jQuery(window).scroll(function(){
+        if(jQuery(window).scrollTop() == jQuery(document).height() - jQuery(window).height()){
             jQuery('div#loadmoreajaxloader').show();
             jQuery.ajax({
             url: resultList,
             success: function(html){
-                console.log("ajaxed");
-                if(html)
-                {
+                if(html){
                     jQuery("#solr-results").append(html);
                     jQuery('div#loadmoreajaxloader').hide();
-                }else
-                {
+                }else{
                     jQuery('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
                 }
             }

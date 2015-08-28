@@ -19,6 +19,16 @@ take a look at Solr:
     make it possible for users to refine searches by cropping down the set of
     results to focus on specific categories.
 
+##Folktale Database extension
+
+This SolrSearch plugin has been modified and extended to fit the needs of the 
+Folktale database. Geolocation fields are added as well as predefined fields 
+that are cloned to fields with the actual name (dublin core names and Item Type 
+Specific names).
+
+Another addition is automatic pagination. When the bottom of the page is reached,
+new results will be added to the list until they are all listed.
+
 ## Requirements
 
 To use the plugin, you'll need access to an installation of Solr 4.0+ running

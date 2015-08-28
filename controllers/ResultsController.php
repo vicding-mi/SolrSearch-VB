@@ -18,7 +18,6 @@ class SolrSearch_ResultsController
      */
     public function init()
     {
-        _log("RESULTS CONTROLLER INIT");
         $this->_fields = $this->_helper->db->getTable('SolrSearchField');
         $this->session = new Zend_Session_Namespace();
     }
@@ -44,11 +43,6 @@ class SolrSearch_ResultsController
         $this->session->page_nr += 1;
         $page  = $this->session->page_nr;
         $start = ($page-1) * $limit;
-
-        _log("----------------");
-        _log("page nr: " + $this->session->page_nr);
-        _log("limit: " + $limit);
-        _log("start: " + $start);
 
         // determine whether to display private items or not
         // items will only be displayed if:
@@ -79,8 +73,6 @@ class SolrSearch_ResultsController
      */
     public function indexAction()
     {
-        
-        _log("index action");
         
         // Get pagination settings.
         $limit = get_option('per_page_public');
@@ -139,9 +131,6 @@ class SolrSearch_ResultsController
         // Construct the query.
         $query = $this->session->query;
 
-        _log(print_r($params, true));
-        _log(print_r($query, true));
-
         // Execute the query.
         return $solr->search($query, $offset, $limit, $params);
 
@@ -165,9 +154,6 @@ class SolrSearch_ResultsController
 
         // Construct the query.
         $query = $this->_getQuery($limitToPublicItems);
-
-        _log(print_r($params, true));
-        _log(print_r($query, true));
 
         // Execute the query.
         return $solr->search($query, $offset, $limit, $params);
