@@ -9,7 +9,6 @@
 
 ?>
 
-<?php //queue_js_file('pagination'); ?>
 <?php queue_css_file('results'); ?>
 
 <?php echo head(array('title' => __('Solr Search')));?>
