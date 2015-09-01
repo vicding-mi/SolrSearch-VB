@@ -19,19 +19,28 @@
               echo $title;
           ?></a>
       </ul>
-
-
-      <!-- Result type. -->
-      <?php if ($subgenre = $doc->subgenre): ?>
-      <i style = "display:inline;"><?php echo $subgenre; ?></i>
-      <?php endif; ?>
-          <?php if ($date = $doc->date): ?>
-      <div style = "display:inline; float:right;" class="item-date">
-          <?php echo $date; ?>
-      </div>
-      <?php endif; ?>
-      </div>
+    </div>
     
+    <!-- Metadata. -->
+    <div class="result-meta">
+    	<span class="result-meta-left" style="font-style: italic">
+            <?php if ($subgenre = $doc->subgenre): ?>
+                <?php echo $subgenre; ?>
+            <?php endif; ?>
+        </span>
+    	<span class="result-meta-right">
+    		<?php
+		
+    			$date_field = is_array($doc->date_s) ? $doc->date_s[0] : $doc->date_s;	//40_s
+    			$dates = explode(' ', $date_field);
+									
+    			$time = strtotime($dates[0]);
+    			$year = date('Y', $time);
+    			echo $year;
+	
+    		?>
+    	</span>
+    </div>
     
     <!-- Highlighting. -->
     <?php $highlighted = false; ?>
@@ -43,10 +52,12 @@
             <li class="snippet"><?php echo strip_tags($hl, '<em>'); ?></li>
           <?php endforeach; ?>
         <?php endforeach; ?>
+        
         <!-- Snippet if no highlighting. -->
         <?php if (!$highlighted):?>
             <li class="snippet"><?php echo snippet($doc->description, 0, 200); ?></li>
         <?php endif; ?>
+        
       </ul>
     <?php endif; ?>
 

@@ -71,7 +71,7 @@ class SolrSearch_Helpers_Index
         return $date;
     }
 
-    public static function validate($date){
+    public static function date_validate($date){
         if (preg_match('/^\d{4}.\\d{2}.\\d{2}\s\d{4}.\\d{2}.\\d{2}$/', $date)){
             $date_span = explode(' ', $date, 2);
             list($yy,$mm,$dd) = explode("-",$date_span[0]);
@@ -88,6 +88,14 @@ class SolrSearch_Helpers_Index
         }
     }
 
+    public static function classify_length($length){
+        if ($length < 25) return '<25';
+        elseif ($length < 100) return '25-100';
+        elseif ($length < 250) return '100-250';
+        elseif ($length < 500) return '250-500';
+        elseif ($length < 1000) return '500-1000';
+        else return '>1000';
+    }
 
     /**
      * This takes an Omeka_Record instance and returns a populated
@@ -154,7 +162,7 @@ class SolrSearch_Helpers_Index
 
         // Start and end date(s):
         $date = metadata($item, array('Dublin Core', 'Date'));
-        if (self::validate($date)){
+        if (self::date_validate($date)){
             $date_span = explode(' ', $date, 2);
             if (count($date_span) == 2){
                 $doc->setField('date_start', self::date_supplement($date_span[0]));
@@ -166,6 +174,13 @@ class SolrSearch_Helpers_Index
             }
         }
 
+        //text size and text size group
+        if ($text = metadata($item, array('Item Type Metadata', 'Text'))) {
+            $main_text_length = strlen($text);
+            $doc->setField('94_t', $main_text_length);
+            $doc->setField('95_t', self::classify_length($main_text_length));
+        }
+        
         //Locations
         $db     = get_db();
         $location = $db->getTable('Location')->findLocationByItem($item, true);

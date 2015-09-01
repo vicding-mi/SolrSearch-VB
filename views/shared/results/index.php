@@ -17,12 +17,13 @@
 //<![CDATA[
 //For automatic pagination
 jQuery(window).load(function () {
+    console.log("scroller loaded");
     loadImageURL = <?php echo js_escape(img("ajax-loader.gif")); ?>;
 
     resultList = <?php echo js_escape(url('solr-search/results/result-list')); ?>; //defining the result list php
 
     jQuery(window).scroll(function(){
-        if(jQuery(window).scrollTop() == jQuery(document).height() - jQuery(window).height()){
+        if(Math.round(jQuery(window).scrollTop()) == jQuery(document).height() - jQuery(window).height()){ //rounding to be sure
             jQuery('div#loadmoreajaxloader').show();
             jQuery.ajax({
             url: resultList,
@@ -37,11 +38,53 @@ jQuery(window).load(function () {
             });
         }
     });
+    
+    jQuery(function(){
+
+    	var maxItems = 8;
+    	//var fullHeight = hiddenContent.height();
+
+    	jQuery('.facet').each(function() {
+    		var ul = jQuery(this).find('ul');
+
+    		if(ul.children('li').size() <= maxItems) return;
+
+    		var hiddenElements = ul.find('li:gt(' + maxItems + ')').hide();
+
+    		var showCaption = <?php echo '"' . __('Show remaining ') . '"'; ?> + hiddenElements.size();
+    		
+    		ul.append(
+    			jQuery('<li class="facet-show-more"><a href="#">' + showCaption + '</a></li>').click( function(e){
+    					e.preventDefault();
+    					if(jQuery(this).siblings(':hidden').length > 0){
+    						jQuery(this).siblings(':hidden').slideDown(200);
+    						jQuery(this).find('a').text('Toon minder');
+    					}else{
+    						hiddenElements.slideUp(200);
+    						jQuery(this).find('a').text(showCaption);
+    						jQuery(this).show();
+    					}
+    				}
+    			)
+    		);
+
+    	});
+
+
+
+    });
 });
 //]]>
 </script>
 
 <h1><?php echo __('Search the Collection'); ?></h1>
+
+<style>
+	#content > div{
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+</style>
 
 <!-- Search form. -->
   <form id="solr-search-form">
@@ -57,38 +100,42 @@ jQuery(window).load(function () {
 <br>
 
 <!-- Applied facets. -->
-<div id="solr-applied-facets" style="padding-top:4px; padding-left:4px">
+<div id="solr-applied-facets">
 
-  <ul>
-    <?php if (!SolrSearch_Helpers_Facet::parseFacets()):?>
-        <li>
-            <span class="applied-facet-label"> Geen filters geselecteerd</span>
-        </li>
+	<ul>
 
-    <?php endif; ?>
+		<!-- Get the applied facets. -->
+		<?php 
+			$count = 0;
+			foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): 
+				$count++;
+		?>
+		  <li>
 
-    <!-- Get the applied facets. -->
-    <?php foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): ?>
-      <li   >
+			<!-- Facet label. -->
+			<?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
+			<span class="applied-facet-label"><?php echo __($label); ?>:</span>
+			<span class="applied-facet-value"><?php echo $f[1]; ?></span>
 
-        <!-- Facet label. -->
-        <?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
-        <span class="applied-facet-label"><b><?php echo $label; ?></b></span>: 
-        <span class="applied-facet-value"><?php echo $f[1]; ?></span>
+			<!-- Remove link. -->
+			<?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
+			(<a href="<?php echo $url; ?>"><?php echo __('remove'); ?></a>)
 
-        <!-- Remove link. -->
-        <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
-        (<a href="<?php echo $url; ?>">remove</a>)
+		  </li>
+		<?php
+			endforeach;		
+		?>
 
-      </li>
-    <?php endforeach; ?>
-
-  </ul>
+	</ul>
+	
+	<?php if($count == 0) echo '<span>Geen filters geselecteerd</span>' ?>
 
 </div>
 
 
 <!-- Facets. -->
+<?php $applied_facets = SolrSearch_Helpers_Facet::parseFacets(); ?>
+
 <div id="solr-facets">
 
   <h2><?php echo __('Limit your search'); ?></h2>
@@ -97,33 +144,41 @@ jQuery(window).load(function () {
 
     <!-- Does the facet have any hits? -->
     <?php if (count(get_object_vars($facets))): ?>
-
+        
       <!-- Facet label. -->
-      <?php $label = __(SolrSearch_Helpers_Facet::keyToLabel($name)); ?>
-      <strong><?php echo $label; ?></strong>
+      <div class="facet">
+          <?php $label = __(SolrSearch_Helpers_Facet::keyToLabel($name)); ?>
+          <strong><?php echo $label; ?></strong>
 
-      <ul>
-        <!-- Facets. -->
-        <?php foreach ($facets as $value => $count): ?>
-          <li class="<?php echo $value; ?>">
+          <?php 
+          if($label == 'Date'):
+            //new type of input: range
+          ?>
+          <?php else:
+            //nothing
+          ?>
+          <ul>
+            <!-- Facets. -->
+            <?php foreach ($facets as $value => $count): ?>
+              <li class="<?php echo $value; ?>">
 
-            <!-- Facet URL. -->
-            <?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
+                <!-- Facet URL. -->
+                <?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
 
-            <!-- Facet link. -->
-            <a href="<?php echo $url; ?>" class="facet-value">
-              <?php echo $value; ?>
-            </a>
+                <!-- Facet link. -->
+                <a href="<?php echo $url; ?>" class="facet-value">
+                  <?php echo $value; ?>
+                </a>
 
-            <!-- Facet count. -->
-            (<span class="facet-count"><?php echo $count; ?></span>)
+                <!-- Facet count. -->
+                (<span class="facet-count"><?php echo $count; ?></span>)
 
-          </li>
-        <?php endforeach; ?>
-      </ul>
-
+              </li>
+            <?php endforeach; ?>
+            <?php endif; ?>
+          </ul>
+      </div>
     <?php endif; ?>
-
   <?php endforeach; ?>
 </div>
 
@@ -133,13 +188,18 @@ jQuery(window).load(function () {
 
   <!-- Number found. -->
   <h2 id="num-found">
-    <?php echo $results->response->numFound . __(" results for \"") . (array_key_exists('q', $_GET) ? $_GET['q'] : '') . "\""; ?>
+    <?php echo $results->response->numFound . " " . __("results for") . " \"" . (array_key_exists('q', $_GET) ? $_GET['q'] : '') . "\""; ?>
   </h2>
 
   <?php include 'result-list.php';?>
 
 </div>
-<div style="border:0px" id="loadmoreajaxloader" style="display:none;"><center><img src="<?php echo img('ajax-loader.gif'); ?>" /></center></div>
+
+<div style="border:0px" id="loadmoreajaxloader" style="display:none;">
+    <center>
+        <img src="<?php echo img('ajax-loader.gif'); ?>" />
+    </center>
+</div>
 
 <?php //echo pagination_links(); ?>
 <?php echo foot();

@@ -206,6 +206,22 @@ msgstr ""
 msgid "Reindex Items in Solr"
 msgstr ""
 
+#: views/shared/results/index.php
+msgid "Search the Collection"
+msgstr ""
+
+#: views/shared/results/index.php
+msgid "Search keywords"
+msgstr ""
+
+#: views/shared/results/index.php
+msgid "Limit your search"
+msgstr ""
+
+#: views/shared/results/index.php:136
+msgid "results for"
+msgstr ""
+
 #: views/admin/reindex/index.php:19
 msgid "Reindex All Items"
 msgstr ""
