@@ -17,7 +17,7 @@
 //<![CDATA[
 //For automatic pagination
 jQuery(window).load(function () {
-    console.log("scroller loaded");
+
     loadImageURL = <?php echo js_escape(img("ajax-loader.gif")); ?>;
 
     resultList = <?php echo js_escape(url('solr-search/results/result-list')); ?>; //defining the result list php
@@ -39,9 +39,11 @@ jQuery(window).load(function () {
         }
     });
     
+    //For showing less facets
+    
     jQuery(function(){
 
-    	var maxItems = 8;
+    	var maxItems = 5;
     	//var fullHeight = hiddenContent.height();
 
     	jQuery('.facet').each(function() {
@@ -51,14 +53,14 @@ jQuery(window).load(function () {
 
     		var hiddenElements = ul.find('li:gt(' + maxItems + ')').hide();
 
-    		var showCaption = <?php echo '"' . __('Show remaining ') . '"'; ?> + hiddenElements.size();
+    		var showCaption = <?php echo '"[+] ' . __('Show remaining ') . '"'; ?> + hiddenElements.size();
     		
     		ul.append(
-    			jQuery('<li class="facet-show-more"><a href="#">' + showCaption + '</a></li>').click( function(e){
+    			jQuery('<li class="facet-show-more" style="content:+"><a href="#">' + showCaption + '</a></li>').click( function(e){
     					e.preventDefault();
     					if(jQuery(this).siblings(':hidden').length > 0){
     						jQuery(this).siblings(':hidden').slideDown(200);
-    						jQuery(this).find('a').text('Toon minder');
+    						jQuery(this).find('a').text(<?php echo '"[-] ' . __('Show less') . '"'; ?>);
     					}else{
     						hiddenElements.slideUp(200);
     						jQuery(this).find('a').text(showCaption);

@@ -27,17 +27,17 @@
             <?php if ($subgenre = $doc->subgenre): ?>
                 <?php echo $subgenre; ?>
             <?php endif; ?>
-        </span>
+        </span> uit
     	<span class="result-meta-right">
     		<?php
 		
-    			$date_field = is_array($doc->date_s) ? $doc->date_s[0] : $doc->date_s;	//40_s
+    			$date_field = is_array($doc->date) ? $doc->date[0] : $doc->date; //40_s
     			$dates = explode(' ', $date_field);
-									
+
     			$time = strtotime($dates[0]);
     			$year = date('Y', $time);
+//    			print_r($date_field);
     			echo $year;
-	
     		?>
     	</span>
     </div>
