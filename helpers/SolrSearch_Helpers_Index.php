@@ -179,6 +179,8 @@ class SolrSearch_Helpers_Index
             $main_text_length = strlen($text);
             $doc->setField('94_t', $main_text_length);
             $doc->setField('95_t', self::classify_length($main_text_length));
+            $doc->setField('94_s', $main_text_length);
+            $doc->setField('95_s', self::classify_length($main_text_length));
         }
         
         //Locations
