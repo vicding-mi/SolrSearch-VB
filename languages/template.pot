@@ -245,3 +245,6 @@ msgstr ""
 msgid "show less"
 msgstr ""
 
+#: views/shared/results/index.php
+msgid "remove"
+msgstr ""
