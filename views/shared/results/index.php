@@ -53,7 +53,7 @@ jQuery(window).load(function () {
 
     		var hiddenElements = ul.find('li:gt(' + maxItems + ')').hide();
 
-    		var showCaption = <?php echo '"[+] ' . __('Show remaining ') . '"'; ?> + hiddenElements.size();
+    		var showCaption = <?php echo '"[+] ' . __('Show remaining') . ' "'; ?> + hiddenElements.size();
     		
     		ul.append(
     			jQuery('<li class="facet-show-more" style="content:+"><a href="#">' + showCaption + '</a></li>').click( function(e){

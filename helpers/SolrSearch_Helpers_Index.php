@@ -176,11 +176,12 @@ class SolrSearch_Helpers_Index
 
         //text size and text size group
         if ($text = metadata($item, array('Item Type Metadata', 'Text'))) {
-            $main_text_length = strlen($text);
-            $doc->setField('94_t', $main_text_length);
-            $doc->setField('95_t', self::classify_length($main_text_length));
-            $doc->setField('94_s', $main_text_length);
-            $doc->setField('95_s', self::classify_length($main_text_length));
+            $main_word_count = substr_count($text, ' ');
+//            $main_text_length = strlen($text); // WOORDEN, NIET LENGTE STRING!!!
+            $doc->setField('94_t', $main_word_count);
+            $doc->setField('95_t', self::classify_length($main_word_count));
+            $doc->setField('94_s', $main_word_count);
+            $doc->setField('95_s', self::classify_length($main_word_count));
         }
         
         //Locations

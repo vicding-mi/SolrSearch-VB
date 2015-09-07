@@ -236,3 +236,12 @@ msgstr ""
 #, php-format
 msgid "%s results"
 msgstr ""
+
+#: views/shared/results/index.php:56
+msgid "show remaining"
+msgstr ""
+
+#: views/shared/results/index.php:63
+msgid "show less"
+msgstr ""
+
