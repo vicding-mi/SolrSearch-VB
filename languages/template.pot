@@ -238,11 +238,11 @@ msgid "%s results"
 msgstr ""
 
 #: views/shared/results/index.php:56
-msgid "show remaining"
+msgid "Show remaining"
 msgstr ""
 
 #: views/shared/results/index.php:63
-msgid "show less"
+msgid "Show less"
 msgstr ""
 
 #: views/shared/results/index.php
