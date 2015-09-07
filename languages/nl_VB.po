@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ScholarsLab\n"
 "Report-Msgid-Bugs-To: http://github.com/scholarslab/SolrSearch/issues\n"
 "POT-Creation-Date: 2015-09-07 12:33+0200\n"
-"PO-Revision-Date: 2015-09-07 12:34+0200\n"
+"PO-Revision-Date: 2015-09-07 15:00+0200\n"
 "Last-Translator: Iwe EC Muiser <e.c.muiser@utwente.nl>\n"
 "Language-Team: Dutch (Belgium) (http://www.transifex.com/projects/p/"
 "scholarslab/language/nl_BE/)\n"
@@ -225,7 +225,7 @@ msgstr "Zoekresultaten beperken"
 
 #: views/shared/results/index.php:136
 msgid "results for"
-msgstr "verwijder"
+msgstr "resultaten voor"
 
 #: views/admin/reindex/index.php:19
 msgid "Reindex All Items"
