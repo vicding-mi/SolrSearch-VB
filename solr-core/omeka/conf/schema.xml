@@ -89,9 +89,7 @@
      default: a value that should be used if no value is specified
        when adding a document.
    -->
-   
-    <!-- predefine all fields to be able to clone them to the named fields-->
-    
+
     <field name="1_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="2_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="3_s" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -224,8 +222,8 @@
     <field name="99_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="100_s" type="string" indexed="true" stored="true" multiValued="true"/>
 
-    <field name="main_text" type="text_general" indexed="true" stored="true" multiValued="true"/>
-    <field name="1_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="main_text" type="text_general" indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+    <field name="1_t" type="text_en" indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
     <field name="2_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
     <field name="3_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
     <field name="4_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
@@ -338,7 +336,7 @@
     <field name="resulttype" type="string" indexed="true" stored="true" />
     <field name="model" type="string" indexed="false" stored="true" />
     <field name="modelid" type="string" indexed="true" stored="true" />
-    <field name="text" type="text_en" indexed="true" stored="false" multiValued="true"/>
+    <field name="text" type="text_en" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
 
     <!-- geologic information merged-->

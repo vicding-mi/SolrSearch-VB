@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ScholarsLab\n"
 "Report-Msgid-Bugs-To: http://github.com/scholarslab/SolrSearch/issues\n"
 "POT-Creation-Date: 2015-09-07 12:33+0200\n"
-"PO-Revision-Date: 2015-09-07 15:00+0200\n"
+"PO-Revision-Date: 2015-09-07 15:12+0200\n"
 "Last-Translator: Iwe EC Muiser <e.c.muiser@utwente.nl>\n"
 "Language-Team: Dutch (Belgium) (http://www.transifex.com/projects/p/"
 "scholarslab/language/nl_BE/)\n"
@@ -36,7 +36,7 @@ msgstr "Trefwoorden"
 
 #: SolrSearchPlugin.php:331 models/SolrSearchField.php:87
 msgid "Result Type"
-msgstr "Resultaatstype"
+msgstr "Resultatentype"
 
 #: SolrSearchPlugin.php:387
 msgid "ACL not available"
