@@ -300,7 +300,8 @@ SQL
      */
     public function filterSearchFormDefaultAction($uri)
     {
-        if (!is_admin_theme()) $uri = url('solr-search/results/interceptor');
+//        if (!is_admin_theme()) $uri = url('solr-search/results/interceptor');
+        $uri = url('solr-search/results/interceptor');
         return $uri;
     }
 
