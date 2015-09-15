@@ -53,12 +53,15 @@ class SolrSearch_Helpers_Index
         foreach ($item->getAllElementTexts() as $text) {
             $field = $fields->findByText($text);
 
+            // MAKE SURE EVERYTHING IS INDEXED! AND THAT ALL DATA IS FACETED, BUT NOT SHOWN AS A FACET
+            
             // Set text field.
             if ($field->is_indexed) {
                 $doc->setMultiValue($field->indexKey(), $text->text);
             }
 
             // Set string field.
+            // ADJUST: MAKE AN EXTRA SETTING FOR SHOWING FACETS IN SEQUENCE ->SET ALL TO IS_FACET
             if ($field->is_facet) {
                 $doc->setMultiValue($field->facetKey(), $text->text);
             }
@@ -69,6 +72,17 @@ class SolrSearch_Helpers_Index
         if ($date == "99-99-99") return false;
         $date .= "T12:00:00Z";
         return $date;
+    }
+
+    public static function date_decennium($start_date){
+        if (preg_match('/^\d{4}.\\d{2}.\\d{2}$/', $start_date)){
+            list($yy,$mm,$dd) = explode("-",$start_date);
+            $decennium = substr_replace($yy,"0",3);
+            return $decennium;
+        }
+        else{
+            return false;
+        }
     }
 
     public static function date_validate($date){
@@ -172,6 +186,7 @@ class SolrSearch_Helpers_Index
                 $doc->setField('date_start', self::date_supplement($date_span[0]));
                 $doc->setField('date_end', self::date_supplement($date_span[0]));
             }
+            $doc->setField('decennium_group', self::date_decennium($date_span[0]));
         }
 
         //text size and text size group

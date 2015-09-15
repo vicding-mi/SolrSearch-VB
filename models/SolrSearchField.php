@@ -147,6 +147,12 @@ class SolrSearchField extends Omeka_Record_AbstractRecord
             case 'itemtype':    return __('Item Type');
             case 'resulttype':  return __('Result Type');
             case 'featured':    return __('Featured');
+            //verhalenbank
+            case 'locality':    return __('Vertelplaats');
+            case 'administrative_area_level_2':    return __('Gemeente');
+            case 'administrative_area_level_1':    return __('Provincie');
+            case 'country':     return __('Land');
+            case 'decennium_group':     return __('Decennium');
 
             default: return $this->getElement()->name;
 

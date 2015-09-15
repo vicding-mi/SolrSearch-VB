@@ -136,17 +136,28 @@ jQuery(window).load(function () {
 
 
 <!-- Facets. -->
-<?php $applied_facets = SolrSearch_Helpers_Facet::parseFacets(); ?>
+<?php 
+
+$applied_facets = SolrSearch_Helpers_Facet::parseFacets();
+
+$facet_order = get_option("solr_search_display_facets_order");
+
+if ($facet_order) {
+    $order = preg_split("/[\r\n]+/", $facet_order);
+} else {
+    $order = array();
+}
+
+?>
 
 <div id="solr-facets">
 
   <h2><?php echo __('Limit your search'); ?></h2>
-
+  <!-- In order from the settings -->
+  <?php foreach ($order as $facet_name): ?>
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
-
     <!-- Does the facet have any hits? -->
-    <?php if (count(get_object_vars($facets))): ?>
-        
+    <?php if (count(get_object_vars($facets)) && ($name == $facet_name )): ?>
       <!-- Facet label. -->
       <div class="facet">
           <?php $label = __(SolrSearch_Helpers_Facet::keyToLabel($name)); ?>
@@ -182,6 +193,7 @@ jQuery(window).load(function () {
       </div>
     <?php endif; ?>
   <?php endforeach; ?>
+<?php endforeach; ?>
 </div>
 
 
