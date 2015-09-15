@@ -221,6 +221,7 @@
     <field name="98_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="99_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="100_s" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="decennium_group" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="main_text" type="text_general" indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
     <field name="1_t" type="text_en" indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
@@ -361,6 +362,27 @@
     <field name="continent" type="string" indexed="true" stored="true"/>
     <field name="planetary_body" type="string" indexed="true" stored="true"/>
 
+    <!-- geologic action location information merged-->
+    <field name="action_latitude" type="float" indexed="true" stored="true"/>
+    <field name="action_longitude" type="float" indexed="true" stored="true"/>
+    <field name="action_zoom_level" type="int" indexed="true" stored="true"/>
+    <field name="action_map_type" type="string" indexed="true" stored="true"/>
+    <field name="action_address" type="string" indexed="true" stored="true"/>
+    <field name="action_route" type="string" indexed="true" stored="true"/>
+    <field name="action_street_number" type="string" indexed="true" stored="true"/>
+    <field name="action_postal_code"  type="string" indexed="true" stored="true"/>
+    <field name="action_postal_code_prefix" type="string" indexed="true" stored="true"/>
+    <field name="action_sublocality" type="string" indexed="true" stored="true"/>
+    <field name="action_locality" type="string" indexed="true" stored="true"/>
+    <field name="action_natural_feature" type="string" indexed="true" stored="true"/>
+    <field name="action_establishment" type="string" indexed="true" stored="true"/>
+    <field name="action_point_of_interest" type="string" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_3" type="string" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_2" type="string" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_1" type="string" indexed="true" stored="true"/>
+    <field name="action_country" type="string" indexed="true" stored="true"/>
+    <field name="action_continent" type="string" indexed="true" stored="true"/>
+    <field name="action_planetary_body" type="string" indexed="true" stored="true"/>
 
     <dynamicField name="*_t" type="text_en" indexed="true" stored="true" multiValued="true" />
     <dynamicField name="*_s" type="string" indexed="true" stored="true" multiValued="true" />
