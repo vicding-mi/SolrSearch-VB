@@ -10,7 +10,7 @@
       <?php $url = SolrSearch_Helpers_View::getDocumentUrl($doc); ?>
 
       <!-- Title. -->
-      <ul style="margin-bottom:5px">
+      <H4 style="margin-bottom:5px">
       <a href="<?php echo $url; ?>" class="result-title"><?php
               $title = is_array($doc->title) ? $doc->title[0] : $doc->title;
               if (empty($title)) {
@@ -18,7 +18,7 @@
               }
               echo $title;
           ?></a>
-      </ul>
+      </H4>
     </div>
     
     <!-- Metadata. -->
