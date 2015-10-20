@@ -23,7 +23,7 @@ jQuery(window).load(function () {
     resultList = <?php echo js_escape(url('solr-search/results/result-list')); ?>; //defining the result list php
 
     jQuery(window).scroll(function(){
-        if(Math.round(jQuery(window).scrollTop()) == jQuery(document).height() - jQuery(window).height()){ //rounding to be sure
+        if(Math.round(jQuery(window).scrollTop()) >= (jQuery(document).height() - jQuery(window).height() - 100)){ //rounding to be sure
             jQuery('div#loadmoreajaxloader').show();
             jQuery.ajax({
             url: resultList,
