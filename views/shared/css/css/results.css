@@ -353,6 +353,15 @@ ul {
     #solr-applied-facets ul li + li:before {
       content: "┬À "; }
 
+#visualize-results ul {
+  margin: 0;
+  padding: 0; }
+  #visualize-results ul li {
+    display: inline; }
+    #visualize-results ul li + li:before {
+      content: "┬À "; }
+
+
 #solr-facets {
   width: 22%;
   float: left; }

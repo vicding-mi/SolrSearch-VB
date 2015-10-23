@@ -255,3 +255,8 @@ msgstr "Minder tonen"
 #: views/shared/results/index.php
 msgid "remove"
 msgstr "verwijderen"
+
+#: views/shared/results/index.php
+msgid "No more posts to show."
+msgstr "Einde lijst."
+

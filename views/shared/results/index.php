@@ -18,9 +18,11 @@
 //For automatic pagination
 jQuery(window).load(function () {
 
-    loadImageURL = <?php echo js_escape(img("ajax-loader.gif")); ?>;
+    var loadImageURL = <?php echo js_escape(img("ajax-loader.gif")); ?>;
 
-    resultList = <?php echo js_escape(url('solr-search/results/result-list')); ?>; //defining the result list php
+    var resultList = <?php echo js_escape(url('solr-search/results/result-list')); ?>; //defining the result list php
+
+    var nomoreposts = "<?php echo __('No more posts to show.'); ?>";
 
     jQuery(window).scroll(function(){
         if(Math.round(jQuery(window).scrollTop()) >= (jQuery(document).height() - jQuery(window).height() - 100)){ //rounding to be sure
@@ -32,7 +34,7 @@ jQuery(window).load(function () {
                     jQuery("#solr-results").append(html);
                     jQuery('div#loadmoreajaxloader').hide();
                 }else{
-                    jQuery('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+                    jQuery('div#loadmoreajaxloader').html('<center>' + nomoreposts + '</center>');
                 }
             }
             });
@@ -91,7 +93,7 @@ jQuery(window).load(function () {
 <!-- Search form. -->
   <form id="solr-search-form">
     <span class="float-wrap">
-      <input style="width:350px" type="text" title="<?php echo __('Search keywords') ?>" name="q" value="<?php
+      <input style="width:350px;" type="text" title="<?php echo __('Search keywords') ?>" name="q" value="<?php
         echo array_key_exists('q', $_GET) ? $_GET['q'] : '';
       ?>" />
       <input type="submit" value="<?php echo __("Search"); ?>" />&nbsp&nbsp
@@ -101,39 +103,46 @@ jQuery(window).load(function () {
 
 <br>
 
-<!-- Applied facets. -->
-<div id="solr-applied-facets">
+<div id="solr" style="border:0px">
+    <!-- Applied facets. -->
+    <div id="solr-applied-facets" style="float:left">
+	    <ul>
+    		<!-- Get the applied facets. -->
+    		<?php 
+    			$count = 0;
+    			foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): 
+    				$count++;
+    		?>
+    		  <li>
 
-	<ul>
+    			<!-- Facet label. -->
+    			<?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
+    			<span class="applied-facet-label"><?php echo __($label); ?>:</span>
+    			<span class="applied-facet-value"><?php echo $f[1]; ?></span>
 
-		<!-- Get the applied facets. -->
-		<?php 
-			$count = 0;
-			foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): 
-				$count++;
-		?>
-		  <li>
+    			<!-- Remove link. -->
+    			<?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
+    			(<a href="<?php echo $url; ?>"><?php echo __('remove'); ?></a>)
 
-			<!-- Facet label. -->
-			<?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
-			<span class="applied-facet-label"><?php echo __($label); ?>:</span>
-			<span class="applied-facet-value"><?php echo $f[1]; ?></span>
-
-			<!-- Remove link. -->
-			<?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
-			(<a href="<?php echo $url; ?>"><?php echo __('remove'); ?></a>)
-
-		  </li>
-		<?php
-			endforeach;		
-		?>
-
-	</ul>
+    		  </li>
+    		<?php
+    			endforeach;		
+    		?>
+    	</ul>
 	
-	<?php if($count == 0) echo '<span>Geen filters geselecteerd</span>' ?>
-
+    	<?php if($count == 0) echo '<span>Geen filters geselecteerd</span>' ?>
+    </div>
+    
+    <div id="visualize-results" style="float:right;">
+        <?php 
+            $q = array_key_exists("q", $_REQUEST) ? $_REQUEST["q"] : "";
+            $facet = array_key_exists("facet", $_REQUEST) ? $_REQUEST["facet"] : "";
+         ?>
+        <a href=" <?php echo url("") . "visuals/map?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "><span class="icon-Verhalenkaart" style="font-size:2em"></span> on map</a> |
+        <a href=" <?php echo url("") . "visuals/wordcloud?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "> as wordcloud</a> |
+        <a href=" <?php echo url("") . "visuals/network?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "> as network</a>
+    </div>
 </div>
-
 
 <!-- Facets. -->
 <?php 

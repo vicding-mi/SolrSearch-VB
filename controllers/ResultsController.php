@@ -68,6 +68,50 @@ class SolrSearch_ResultsController
     }
     
 
+
+    /**
+     * Display Solr results.
+     */
+    public function mapAction()
+    {
+        
+        // Get pagination settings.
+        $limit = get_option('per_page_public');
+        $page  = $this->_request->page ? $this->_request->page : 1;
+        $start = ($page-1) * $limit;
+
+        // determine whether to display private items or not
+        // items will only be displayed if:
+        // solr_search_display_private_items has been enabled in the Solr Search admin panel
+        // user is logged in
+        // user_role has sufficient permissions
+
+        $user = current_user();
+        if(get_option('solr_search_display_private_items')
+            && $user
+            && is_allowed('Items','showNotPublic')) {
+            // limit to public items
+            $limitToPublicItems = false;
+        } else {
+            $limitToPublicItems = true;
+        }
+
+        // Execute the query.
+        $results = $this->_search($start, $limit, $limitToPublicItems);
+
+        // Set the pagination.
+        Zend_Registry::set('pagination', array(
+            'page'          => $page,
+            'total_results' => $results->response->numFound,
+            'per_page'      => $limit
+        ));
+
+        // Push results to the view.
+        $this->session->page_nr = 1;
+        $this->view->results = $results;
+
+    }
+
     /**
      * Display Solr results.
      */
@@ -195,7 +239,11 @@ class SolrSearch_ResultsController
            $query .= ' AND public:"true"';
         }
 
+//        _log($facet);
+
         $this->session->query = $query;
+        $this->view->query = $this->_request->q;
+        $this->view->facet = $this->_request->facet;
         return $query;
 
     }

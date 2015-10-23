@@ -122,6 +122,8 @@ class SolrSearch_Helpers_Facet
 
     /**
      * Get the human-readable label for a facet key.
+     * 
+     * If human readable is already present: return facetname
      *
      * @param string $key The facet key.
      * @return string The label.
@@ -129,8 +131,11 @@ class SolrSearch_Helpers_Facet
     public static function keyToLabel($key)
     {
         $fields = get_db()->getTable('SolrSearchField');
-        return $fields->findBySlug(rtrim($key, '_s'))->label;
+        if (strpos($key, '_s') !== false) {
+            return $fields->findBySlug(rtrim($key, '_s'))->label;
+        }else{
+            return $key;
+        }
     }
-
 
 }
