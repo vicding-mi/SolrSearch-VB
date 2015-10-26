@@ -139,8 +139,8 @@ jQuery(window).load(function () {
             $facet = array_key_exists("facet", $_REQUEST) ? $_REQUEST["facet"] : "";
          ?>
         <a href=" <?php echo url("") . "visuals/map?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "><span class="icon-Verhalenkaart" style="font-size:2em"></span> on map</a>
-<!--    |<a href=" <?php echo url("") . "visuals/wordcloud?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "> as wordcloud</a> 
-        |<a href=" <?php echo url("") . "visuals/network?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "> as network</a> -->
+        |<a href=" <?php echo url("") . "visuals/cloud?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "> as wordcloud</a> 
+<!--        |<a href=" <?php echo url("") . "visuals/network?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "> as network</a> -->
     </div>
 </div>
 
