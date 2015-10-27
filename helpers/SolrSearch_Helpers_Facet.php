@@ -134,7 +134,7 @@ class SolrSearch_Helpers_Facet
         if (strpos($key, '_s') !== false) {
             return $fields->findBySlug(rtrim($key, '_s'))->label;
         }else{
-            return $key;
+            return ucfirst($key);
         }
     }
 

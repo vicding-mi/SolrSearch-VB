@@ -165,45 +165,44 @@ if ($facet_order) {
   <h2><?php echo __('Limit your search'); ?></h2>
   <!-- In order from the settings -->
   <?php foreach ($order as $facet_name): ?>
-  <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
+    <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
     <!-- Does the facet have any hits? -->
-    <?php if (count(get_object_vars($facets)) && ($name == $facet_name )): ?>
-      <!-- Facet label. -->
-      <div class="facet">
-          <?php $label = __(SolrSearch_Helpers_Facet::keyToLabel($name)); ?>
-          <strong><?php echo $label; ?></strong>
+        <?php if (count(get_object_vars($facets)) && ($name == $facet_name )): ?>
+          <!-- Facet label. -->
+          <div class="facet">
+              <?php $label = __(SolrSearch_Helpers_Facet::keyToLabel($name)); ?>
+              <strong><?php echo $label; ?></strong>
 
-          <?php 
-          if($label == 'Date'):
-            //new type of input: range
-          ?>
-          <?php else:
-            //nothing
-          ?>
-          <ul>
-            <!-- Facets. -->
-            <?php foreach ($facets as $value => $count): ?>
-              <li class="<?php echo $value; ?>">
+              <?php if($label == 'Date'):
+                //new type of input: range
+              ?>
+              <?php else:
+                //nothing
+              ?>
+              <ul>
+                <!-- Facets. -->
+                <?php foreach ($facets as $value => $count): ?>
+                  <li class="<?php echo $value; ?>">
 
-                <!-- Facet URL. -->
-                <?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
+                    <!-- Facet URL. -->
+                    <?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
 
-                <!-- Facet link. -->
-                <a href="<?php echo $url; ?>" class="facet-value">
-                  <?php echo $value; ?>
-                </a>
+                    <!-- Facet link. -->
+                    <a href="<?php echo $url; ?>" class="facet-value">
+                      <?php echo $value; ?>
+                    </a>
 
-                <!-- Facet count. -->
-                (<span class="facet-count"><?php echo $count; ?></span>)
+                    <!-- Facet count. -->
+                    (<span class="facet-count"><?php echo $count; ?></span>)
 
-              </li>
-            <?php endforeach; ?>
-            <?php endif; ?>
-          </ul>
-      </div>
-    <?php endif; ?>
+                  </li>
+                <?php endforeach; ?>
+                <?php endif; ?>
+              </ul>
+          </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
   <?php endforeach; ?>
-<?php endforeach; ?>
 </div>
 
 
