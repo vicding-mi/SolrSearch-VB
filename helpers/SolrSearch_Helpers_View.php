@@ -11,7 +11,42 @@
 class SolrSearch_Helpers_View
 {
 
+    function visualize_results_functions($_REQUEST){
+        $q = array_key_exists("q", $_REQUEST) ? $_REQUEST["q"] : "";
+        $facet = array_key_exists("facet", $_REQUEST) ? $_REQUEST["facet"] : "";
+        $free = array_key_exists("free", $_REQUEST) ? $_REQUEST["free"] : "";    
 
+        $html = '<div id="visualize-results" style="float:right;">';
+        $html .= '<a href="' . url("") . 'solr-search?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '&free=' . urlencode($free) . '"><span class="icon-book3" style="font-size:2em"></span> als lijst</a>';
+        $html .= '    | <a href="' . url("") . 'visuals/map?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '&free=' . urlencode($free) . '"><span class="icon-Verhalenkaart" style="font-size:2em"></span> op de kaart</a>';
+        $html .= '    | <a href="' . url("") . 'visuals/cloud?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '&free=' . urlencode($free) . '"> als wordcloud</a>';
+#        $html .= '    | <a href="' . url("") . 'visuals/network?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '"> as network</a>';
+        $html .= '</div>';
+
+        return $html;
+    }
+
+    /**
+     * Get HTML for a link to the item search form.
+     *
+     * @package Omeka\Function\View\Navigation
+     * @param string $text Text of the link. Default is 'Search Items'.
+     * @param array $props HTML attributes for the link.
+     * @param string $uri Action for the form.  Defaults to 'items/browse'.
+     * @return string
+     */
+    function link_to_advanced_search($text = null, $props = array(), $uri = null)
+    {
+        if (!$text) {
+            $text = __('Search Items');
+        }
+        if (!$uri) {
+            $uri = apply_filters('items_search_default_url', url('solr-search/results/search-form'));
+        }
+        $props['href'] = $uri . (!empty($_SERVER['QUERY_STRING']) ? '?' . $_SERVER['QUERY_STRING'] : '');
+        return '<a ' . tag_attributes($props) . '>' . $text . '</a>';
+    }
+    
     /**
      * This returns the base URL for the results page.
      *

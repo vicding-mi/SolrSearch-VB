@@ -143,7 +143,8 @@ class SolrSearch_Helpers_Index
 
         // Tags:
         foreach ($item->getTags() as $tag) {
-            $doc->setMultiValue('tag', $tag->name);
+            $doc->setMultiValue('tag_t', $tag->name);
+            $doc->setMultiValue('tag_s', $tag->name);
         }   
 
         // Collection:
@@ -166,7 +167,7 @@ class SolrSearch_Helpers_Index
 //        }
 
 ###############################################################################
-        //ADDITION FOR VISUALIZATIONS
+        //ADDITION FOR VISUALIZATIONS AND FACETS
         if ($itemType = $item->getItemType()) {
             $doc->setField('itemtype_id', $item->item_type_id);
         }
@@ -207,23 +208,43 @@ class SolrSearch_Helpers_Index
             $doc->setField("latitude", $location->latitude);
             $doc->setField("longitude", $location->longitude);
             $doc->setField("zoom_level", $location->zoom_level);
-            $doc->setField("map_type", $location->map_type);
-            $doc->setField("address", $location->address);
-            $doc->setField("route", $location->route);
-            $doc->setField("street_number", $location->street_number);
-            $doc->setField("postal_code", $location->postal_code);
-            $doc->setField("postal_code_prefix", $location->postal_code_prefix);
-            $doc->setField("sublocality", $location->sublocality);
-            $doc->setField("locality", $location->locality);
-            $doc->setField("natural_feature", $location->natural_feature);
-            $doc->setField("establishment", $location->establishment);
-            $doc->setField("point_of_interest", $location->point_of_interest);
-            $doc->setField("administrative_area_level_3", $location->administrative_area_level_3);
-            $doc->setField("administrative_area_level_2", $location->administrative_area_level_2);
-            $doc->setField("administrative_area_level_1", $location->administrative_area_level_1);
-            $doc->setField("country", $location->country);
-            $doc->setField("continent", $location->continent);
-            $doc->setField("planetary_body", $location->planetary_body);
+            
+            $doc->setField("map_type_t", $location->map_type);
+            $doc->setField("address_t", $location->address);
+            $doc->setField("route_t", $location->route);
+            $doc->setField("street_number_t", $location->street_number);
+            $doc->setField("postal_code_t", $location->postal_code);
+            $doc->setField("postal_code_prefix_t", $location->postal_code_prefix);
+            $doc->setField("sublocality_t", $location->sublocality);
+            $doc->setField("locality_t", $location->locality);
+            $doc->setField("natural_feature_t", $location->natural_feature);
+            $doc->setField("establishment_t", $location->establishment);
+            $doc->setField("point_of_interest_t", $location->point_of_interest);
+            $doc->setField("administrative_area_level_3_t", $location->administrative_area_level_3);
+            $doc->setField("administrative_area_level_2_t", $location->administrative_area_level_2);
+            $doc->setField("administrative_area_level_1_t", $location->administrative_area_level_1);
+            $doc->setField("country_t", $location->country);
+            $doc->setField("continent_t", $location->continent);
+            $doc->setField("planetary_body_t", $location->planetary_body);
+            
+            $doc->setField("map_type_s", $location->map_type);
+            $doc->setField("address_s", $location->address);
+            $doc->setField("route_s", $location->route);
+            $doc->setField("street_number_s", $location->street_number);
+            $doc->setField("postal_code_s", $location->postal_code);
+            $doc->setField("postal_code_prefix_s", $location->postal_code_prefix);
+            $doc->setField("sublocality_s", $location->sublocality);
+            $doc->setField("locality_s", $location->locality);
+            $doc->setField("natural_feature_s", $location->natural_feature);
+            $doc->setField("establishment_s", $location->establishment);
+            $doc->setField("point_of_interest_s", $location->point_of_interest);
+            $doc->setField("administrative_area_level_3_s", $location->administrative_area_level_3);
+            $doc->setField("administrative_area_level_2_s", $location->administrative_area_level_2);
+            $doc->setField("administrative_area_level_1_s", $location->administrative_area_level_1);
+            $doc->setField("country_s", $location->country);
+            $doc->setField("continent_s", $location->continent);
+            $doc->setField("planetary_body_s", $location->planetary_body);
+            
         }
 ###############################################################################
 

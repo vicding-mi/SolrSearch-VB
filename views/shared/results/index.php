@@ -28,15 +28,15 @@ jQuery(window).load(function () {
         if(Math.round(jQuery(window).scrollTop()) >= (jQuery(document).height() - jQuery(window).height() - 100)){ //rounding to be sure
             jQuery('div#loadmoreajaxloader').show();
             jQuery.ajax({
-            url: resultList,
-            success: function(html){
-                if(html){
-                    jQuery("#solr-results").append(html);
-                    jQuery('div#loadmoreajaxloader').hide();
-                }else{
-                    jQuery('div#loadmoreajaxloader').html('<center>' + nomoreposts + '</center>');
+                url: resultList,
+                success: function(html){
+                    if(html){
+                        jQuery("#solr-results").append(html);
+                        jQuery('div#loadmoreajaxloader').hide();
+                    }else{
+                        jQuery('div#loadmoreajaxloader').html('<center>' + nomoreposts + '</center>');
+                    }
                 }
-            }
             });
         }
     });
@@ -91,37 +91,68 @@ jQuery(window).load(function () {
 </style>
 
 <!-- Search form. -->
-  <form id="solr-search-form">
+<form id="solr-search-form">
     <span class="float-wrap">
       <input style="width:350px;" type="text" title="<?php echo __('Search keywords') ?>" name="q" value="<?php
         echo array_key_exists('q', $_GET) ? $_GET['q'] : '';
       ?>" />
       <input type="submit" value="<?php echo __("Search"); ?>" />&nbsp&nbsp
-      <?php echo link_to_item_search(__('Advanced Search')); ?>
+      <?php echo SolrSearch_Helpers_View::link_to_advanced_search(__('Advanced Search')); ?>
     </span>
-  </form>
+</form>
 
 <br>
+
+<!-- Applied free search. -->
+<?php   
+
+$applied_freesearch = SolrSearch_Helpers_Facet::parseFreeSearch(); 
+$applied_facets = SolrSearch_Helpers_Facet::parseFacets();
+
+?>
+
 
 <div id="solr" style="border:0px">
     <!-- Applied facets. -->
     <div id="solr-applied-facets" style="float:left">
-	    <ul>
-    		<!-- Get the applied facets. -->
+        <ul>
+    		<!-- Get the applied free searches. -->
     		<?php 
     			$count = 0;
-    			foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): 
+    			foreach ($applied_freesearch as $free): 
     				$count++;
     		?>
     		  <li>
 
     			<!-- Facet label. -->
-    			<?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
-    			<span class="applied-facet-label"><?php echo __($label); ?>:</span>
-    			<span class="applied-facet-value"><?php echo $f[1]; ?></span>
+    			<?php $label = SolrSearch_Helpers_Facet::keyToLabel($free[0]); ?>
+    			<span class="applied-facet-label"><?php echo __($label) . " (vrij)"; ?>:</span>
+    			<span class="applied-facet-value"><?php echo $free[1]; ?></span>
 
     			<!-- Remove link. -->
-    			<?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
+    			<?php $url = SolrSearch_Helpers_Facet::removeFreeSearch($free[0], $free[1]); ?>
+    			(<a href="<?php echo $url; ?>"><?php echo __('remove'); ?></a>)
+
+    		  </li>
+    		<?php
+    			endforeach;		
+    		?>
+    	</ul>
+	    <ul>
+    		<!-- Get the applied facets. -->
+    		<?php 
+    			foreach ($applied_facets as $fac): 
+    				$count++;
+    		?>
+    		  <li>
+
+    			<!-- Facet label. -->
+    			<?php $label = SolrSearch_Helpers_Facet::keyToLabel($fac[0]); ?>
+    			<span class="applied-facet-label"><?php echo __($label); ?>:</span>
+    			<span class="applied-facet-value"><?php echo $fac[1]; ?></span>
+
+    			<!-- Remove link. -->
+    			<?php $url = SolrSearch_Helpers_Facet::removeFacet($fac[0], $fac[1]); ?>
     			(<a href="<?php echo $url; ?>"><?php echo __('remove'); ?></a>)
 
     		  </li>
@@ -130,25 +161,14 @@ jQuery(window).load(function () {
     		?>
     	</ul>
 	
-    	<?php if($count == 0) echo '<span>Geen filters geselecteerd</span>' ?>
+    	<?php if($count == 0) echo '<span>Geen filters geactiveerd</span>' ?>
     </div>
     
-    <div id="visualize-results" style="float:right;">
-        <?php 
-            $q = array_key_exists("q", $_REQUEST) ? $_REQUEST["q"] : "";
-            $facet = array_key_exists("facet", $_REQUEST) ? $_REQUEST["facet"] : "";
-         ?>
-        <a href=" <?php echo url("") . "solr-search?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "><span class="icon-book3" style="font-size:2em"></span> als lijst</a>
-        | <a href=" <?php echo url("") . "visuals/map?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "><span class="icon-Verhalenkaart" style="font-size:2em"></span> op de kaart</a>
-        | <a href=" <?php echo url("") . "visuals/cloud?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "> als wordcloud</a> 
-<!--        |<a href=" <?php echo url("") . "visuals/network?q=" . urlencode($q) . "&facet=" . urlencode($facet) ?> "> as network</a> -->
-    </div>
+    <?php echo SolrSearch_Helpers_View::visualize_results_functions($_REQUEST); ?>
 </div>
 
 <!-- Facets. -->
 <?php 
-
-$applied_facets = SolrSearch_Helpers_Facet::parseFacets();
 
 $facet_order = get_option("solr_search_display_facets_order");
 

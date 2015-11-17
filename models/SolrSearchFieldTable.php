@@ -135,6 +135,24 @@ class SolrSearchFieldTable extends Omeka_Db_Table
 
     }
 
+    /**
+     * Get a list of the slugs of all indexed fields.
+     *
+     * @return array The list of indexed field slugs.
+     */
+    public function getIndexedKeys()
+    {
+
+        $indexed = array();
+
+        // Get names for active facets.
+        foreach ($this->findBySql('is_indexed=?', array(1)) as $field) {
+            $indexed[] = $field->facetKey();
+        }
+
+        return $indexed;
+
+    }
 
     /**
      * Get all fields grouped by element set id.
