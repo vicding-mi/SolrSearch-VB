@@ -89,7 +89,7 @@
      default: a value that should be used if no value is specified
        when adding a document.
    -->
-
+    <field name="tag_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="1_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="2_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="3_s" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -223,110 +223,111 @@
     <field name="100_s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="decennium_group" type="string" indexed="true" stored="true" multiValued="true"/>
 
+    <field name="tag_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
     <field name="main_text" type="text_general" indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
-    <field name="1_t" type="text_en" indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
-    <field name="2_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="3_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="4_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="5_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="6_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="7_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="8_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="9_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="10_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="11_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="12_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="13_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="14_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="15_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="16_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="17_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="18_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="19_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="20_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="21_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="22_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="23_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="24_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="25_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="26_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="27_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="28_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="29_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="30_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="31_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="32_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="33_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="34_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="35_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="36_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="37_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="38_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="39_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="1_t" type="text_nl"            indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+    <field name="2_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="3_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="4_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="5_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="6_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="7_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="8_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="9_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="10_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="11_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="12_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="13_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="14_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="15_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="16_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="17_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="18_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="19_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="20_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="21_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="22_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="23_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="24_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="25_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="26_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="27_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="28_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="29_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="30_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="31_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="32_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="33_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="34_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="35_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="36_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="37_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="38_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="39_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
     <field name="40_t" type="text_ws" indexed="true" stored="true" multiValued="true"/>
-    <field name="41_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="42_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="43_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="44_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="45_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="46_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="47_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="48_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="49_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="50_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="51_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="52_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="53_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="54_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="55_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="56_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="57_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="58_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="59_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="60_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="61_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="62_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="63_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="64_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="65_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="66_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="67_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="68_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="69_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="70_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="71_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="72_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="73_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="74_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="75_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="76_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="77_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="78_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="79_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="80_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="81_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="82_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="83_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="84_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="85_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="86_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="87_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="88_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="89_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="90_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="91_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="92_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="93_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="94_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="95_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="96_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="97_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="98_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="99_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
-    <field name="100_t" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="41_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="42_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="43_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="44_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="45_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="46_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="47_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="48_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="49_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="50_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="51_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="52_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="53_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="54_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="55_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="56_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="57_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="58_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="59_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="60_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="61_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="62_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="63_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="64_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="65_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="66_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="67_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="68_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="69_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="70_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="71_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="72_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="73_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="74_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="75_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="76_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="77_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="78_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="79_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="80_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="81_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="82_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="83_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="84_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="85_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="86_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="87_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="88_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="89_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="90_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="91_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="92_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="93_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="94_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="95_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="96_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="97_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="98_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="99_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="100_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
 
     <field name="id" type="string" indexed="true" stored="true" required="true" /> 
-    <field name="title" type="text_en" indexed="true" stored="true" multiValued="true" />
+    <field name="title" type="text_nl" indexed="true" stored="true" multiValued="true" />
     <field name="tag" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="collection" type="string" indexed="true" stored="true" />
     <field name="collection_id" type="int" indexed="true" stored="true" />
@@ -337,13 +338,50 @@
     <field name="resulttype" type="string" indexed="true" stored="true" />
     <field name="model" type="string" indexed="false" stored="true" />
     <field name="modelid" type="string" indexed="true" stored="true" />
-    <field name="text" type="text_en" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+    <field name="text" type="text_nl" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
 
     <!-- geologic information merged-->
     <field name="latitude" type="float" indexed="true" stored="true"/>
     <field name="longitude" type="float" indexed="true" stored="true"/>
     <field name="zoom_level" type="int" indexed="true" stored="true"/>
+
+    <field name="map_type_s" type="string" indexed="true" stored="true"/>
+    <field name="address_s" type="string" indexed="true" stored="true"/>
+    <field name="route_s" type="string" indexed="true" stored="true"/>
+    <field name="street_number_s" type="string" indexed="true" stored="true"/>
+    <field name="postal_code_s"  type="string" indexed="true" stored="true"/>
+    <field name="postal_code_prefix_s" type="string" indexed="true" stored="true"/>
+    <field name="sublocality_s" type="string" indexed="true" stored="true"/>
+    <field name="locality_s" type="string" indexed="true" stored="true"/>
+    <field name="natural_feature_s" type="string" indexed="true" stored="true"/>
+    <field name="establishment_s" type="string" indexed="true" stored="true"/>
+    <field name="point_of_interest_s" type="string" indexed="true" stored="true"/>
+    <field name="administrative_area_level_3_s" type="string" indexed="true" stored="true"/>
+    <field name="administrative_area_level_2_s" type="string" indexed="true" stored="true"/>
+    <field name="administrative_area_level_1_s" type="string" indexed="true" stored="true"/>
+    <field name="country_s" type="string" indexed="true" stored="true"/>
+    <field name="continent_s" type="string" indexed="true" stored="true"/>
+    <field name="planetary_body_s" type="string" indexed="true" stored="true"/>
+    
+    <field name="map_type_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="address_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="route_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="street_number_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="postal_code_t"  type="text_nl" indexed="true" stored="true"/>
+    <field name="postal_code_prefix_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="sublocality_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="locality_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="natural_feature_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="establishment_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="point_of_interest_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="administrative_area_level_3_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="administrative_area_level_2_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="administrative_area_level_1_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="country_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="continent_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="planetary_body_t" type="text_nl" indexed="true" stored="true"/>
+        
     <field name="map_type" type="string" indexed="true" stored="true"/>
     <field name="address" type="string" indexed="true" stored="true"/>
     <field name="route" type="string" indexed="true" stored="true"/>
@@ -384,7 +422,7 @@
     <field name="action_continent" type="string" indexed="true" stored="true"/>
     <field name="action_planetary_body" type="string" indexed="true" stored="true"/>
 
-    <dynamicField name="*_t" type="text_en" indexed="true" stored="true" multiValued="true" />
+    <dynamicField name="*_t" type="text_nl" indexed="true" stored="true" multiValued="true" />
     <dynamicField name="*_s" type="string" indexed="true" stored="true" multiValued="true" />
 
   </fields>
@@ -402,7 +440,9 @@
   <copyField source="resulttype" dest="text" />
   <copyField source="title" dest="text" />
 
-  <copyField source="1_t" dest="main_text" />
+  <!-- copying to field with omeka names for visualization purposes -->
+  <copyField source="tag_t" dest="tag" />
+  <copyField source="1_t"  dest="main_text" />
   <copyField source="28_t" dest="url" />
   <copyField source="37_t" dest="contributor" />
   <copyField source="38_t" dest="coverage" />
@@ -433,6 +473,26 @@
   <copyField source="94_t" dest="word_count" />
   <copyField source="95_t" dest="word_count_group" />
 
+  <copyField source="latitude_t"                    dest="latitude" />
+  <copyField source="longitude_t"                   dest="longitude"/>
+  <copyField source="zoom_level_t"                  dest="zoom_level"/>
+  <copyField source="map_type_t"                    dest="map_type"/>
+  <copyField source="address_t"                     dest="address"/>
+  <copyField source="route_t"                       dest="route"/>
+  <copyField source="street_number_t"               dest="street_number"/>
+  <copyField source="postal_code_t"                 dest="postal_code"/>
+  <copyField source="postal_code_prefix_t"          dest="postal_code_prefix"/>
+  <copyField source="sublocality_t"                 dest="sublocality"/>
+  <copyField source="locality_t"                    dest="locality"/>
+  <copyField source="natural_feature_t"             dest="natural_feature"/>
+  <copyField source="establishment_t"               dest="establishment"/>
+  <copyField source="point_of_interest_t"           dest="point_of_interest"/>
+  <copyField source="administrative_area_level_3_t" dest="administrative_area_level_3"/>
+  <copyField source="administrative_area_level_2_t" dest="administrative_area_level_2"/>
+  <copyField source="administrative_area_level_1_t" dest="administrative_area_level_1"/>
+  <copyField source="country_t"                     dest="country"/>
+  <copyField source="continent_t"                   dest="continent"/>
+  <copyField source="planetary_body_t"              dest="planetary_body"/>
 
  <!-- DEPRECATED: The defaultSearchField is consulted by various query parsers when
   parsing a query string that isn't explicit about the field.  Machine (non-user)
@@ -475,6 +535,13 @@
 
     <!-- The StrField type is not analyzed, but indexed/stored verbatim. -->
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+    
+    <fieldType name="string_ci" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+        <analyzer>
+            <tokenizer class="solr.KeywordTokenizerFactory"/>           
+            <filter class="solr.LowerCaseFilterFactory" />
+        </analyzer>
+    </fieldType>
 
     <!-- boolean type: "true" or "false" -->
     <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
@@ -647,7 +714,7 @@
                 enablePositionIncrements="true"
                 />
         <filter class="solr.LowerCaseFilterFactory"/>
-	<filter class="solr.EnglishPossessiveFilterFactory"/>
+	      <filter class="solr.EnglishPossessiveFilterFactory"/>
         <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
 	<!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
         <filter class="solr.EnglishMinimalStemFilterFactory"/>
@@ -663,7 +730,7 @@
                 enablePositionIncrements="true"
                 />
         <filter class="solr.LowerCaseFilterFactory"/>
-	<filter class="solr.EnglishPossessiveFilterFactory"/>
+	      <filter class="solr.EnglishPossessiveFilterFactory"/>
         <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
 	<!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
         <filter class="solr.EnglishMinimalStemFilterFactory"/>
@@ -864,7 +931,6 @@
               <filter class="solr.EnglishPossessiveFilterFactory"/>
               <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
 
-
               <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory: -->
               <!--        <filter class="solr.EnglishMinimalStemFilterFactory"/> -->
               <filter class="solr.PorterStemFilterFactory"/>
@@ -908,7 +974,6 @@
               <filter class="solr.LowerCaseFilterFactory"/>
               <filter class="solr.EnglishPossessiveFilterFactory"/>
               <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
-
 
               <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory: -->
               <!--        <filter class="solr.EnglishMinimalStemFilterFactory"/> -->
@@ -961,7 +1026,6 @@
           </analyzer>
       </fieldType>
 
-
       <fieldType name="text_en_synonymsState" class="solr.TextField" positionIncrementGap="100">
           <analyzer type="index">
               <tokenizer class="solr.StandardTokenizerFactory"/>
@@ -1003,6 +1067,7 @@
               <filter class="solr.PorterStemFilterFactory"/>
           </analyzer>
       </fieldType>
+      
       <!-- separate synonym table needed for topics advanced search pull-down  -->
       <fieldType name="text_en_synonymsIso" class="solr.TextField" positionIncrementGap="100">
           <analyzer type="index">
@@ -1039,7 +1104,6 @@
               <filter class="solr.EnglishPossessiveFilterFactory"/>
               <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
 
-
               <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory: -->
               <!--        <filter class="solr.EnglishMinimalStemFilterFactory"/> -->
               <filter class="solr.PorterStemFilterFactory"/>
@@ -1053,12 +1117,12 @@
       queries for paths match documents at that path, or in descendent paths
     -->
     <fieldType name="descendent_path" class="solr.TextField">
-      <analyzer type="index">
-	<tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="/" />
-      </analyzer>
-      <analyzer type="query">
-	<tokenizer class="solr.KeywordTokenizerFactory" />
-      </analyzer>
+        <analyzer type="index">
+          <tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="/" />
+        </analyzer>
+        <analyzer type="query">
+          <tokenizer class="solr.KeywordTokenizerFactory" />
+        </analyzer>
     </fieldType>
     <!--
       Example of using PathHierarchyTokenizerFactory at query time, so
@@ -1066,10 +1130,10 @@
     -->
     <fieldType name="ancestor_path" class="solr.TextField">
       <analyzer type="index">
-	<tokenizer class="solr.KeywordTokenizerFactory" />
+        <tokenizer class="solr.KeywordTokenizerFactory" />
       </analyzer>
       <analyzer type="query">
-	<tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="/" />
+        <tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="/" />
       </analyzer>
     </fieldType>
 
@@ -1414,14 +1478,34 @@
       </analyzer>
     </fieldType>
 
-    <!-- Dutch -->
+    <!-- Dutch EXACT MATCHING WITHOUT CASE -->
+    <!-- problematic: whitespacetokenfactory does not remove punctuation-->
     <fieldType name="text_nl" class="solr.TextField" positionIncrementGap="100">
       <analyzer>
         <tokenizer class="solr.StandardTokenizerFactory"/>
         <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+    
+    <fieldType name="text_nl_old" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
         <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_nl.txt" format="snowball" enablePositionIncrements="true"/>
-        <filter class="solr.StemmerOverrideFilterFactory" dictionary="lang/stemdict_nl.txt" ignoreCase="false"/>
-        <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
+<!--        <filter class="solr.StemmerOverrideFilterFactory" dictionary="lang/stemdict_nl.txt" ignoreCase="false"/> -->
+<!--        <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/> -->
+      </analyzer>
+      <analyzer type="index">
+        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_nl.txt" enablePositionIncrements="true" />
+        <!-- in this example, we will only use synonyms at query time
+        <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
+        -->
+        <filter class="solr.LowerCaseFilterFactory"/>
       </analyzer>
     </fieldType>
 
