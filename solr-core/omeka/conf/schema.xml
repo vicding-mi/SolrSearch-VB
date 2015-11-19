@@ -331,6 +331,7 @@
     <field name="tag" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="collection" type="string" indexed="true" stored="true" />
     <field name="collection_id" type="int" indexed="true" stored="true" />
+    <field name="owner_id" type="int" indexed="true" stored="true" />
     <field name="public" type="boolean" indexed="true" stored="true" />
     <field name="featured" type="boolean" indexed="true" stored="true" />
     <field name="itemtype" type="string" indexed="true" stored="true" />

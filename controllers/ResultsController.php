@@ -12,6 +12,91 @@ class SolrSearch_ResultsController
     extends Omeka_Controller_AbstractActionController
 {
 
+        /*
+        Same as tags autocomplete but with more parameters
+        returns a page with a simple list
+        */
+        function autocompleteAction(){
+            $this->_fields = $this->_helper->db->getTable('SolrSearchField');
+            $searchText = $this->_getParam('term');
+            $elementId = $this->_getParam('id');
+            $sorting = $this->_getParam('sorting');         //(to return latest existing ID's for instance)
+            if (!$sorting) $sorting = "ASC";
+            $limit = $this->_getParam('limit');         //(to return latest existing ID's for instance)
+            if (!$limit) $limit = "15";
+
+            // Connect to Solr.
+            $solr = SolrSearch_Helpers_Index::connect();
+
+            // Construct the query.
+//            $query = $elementId . ":*" . $searchText . "*";
+            $query = "*:*";
+
+            $params = array(
+                'rows'                => 0,
+                'facet'               => 'true',
+                'facet.field'         => $elementId,
+                'facet.mincount'      => 1,
+                'facet.limit'         => $limit,
+                'facet.prefix'        => $searchText
+//                'facet.sort'          => get_option('solr_search_facet_sort'),
+//                'fl'                  => $elementId
+            );
+
+            // Execute the query.
+            $response = $solr->search($query, 0, 0, $params);
+            
+            $returner = array();
+            
+            foreach($response->facet_counts->facet_fields->{$elementId} as $key => $facet){
+                $returner[] = $key;
+            }
+            
+            $this->_helper->json($returner);
+        }
+
+        /*
+        Same as tags autocomplete but with more parameters
+        returns a page with a simple list
+        */
+        function autocompleteActionTEST(){
+            // Get pagination settings.
+            $limit = 15;
+            $page  = 1;
+            $start = 0;
+
+            // determine whether to display private items or not
+            // items will only be displayed if:
+            // solr_search_display_private_items has been enabled in the Solr Search admin panel
+            // user is logged in
+            // user_role has sufficient permissions
+
+            $user = current_user();
+            if(get_option('solr_search_display_private_items')
+                && $user
+                && is_allowed('Items','showNotPublic')) {
+                // limit to public items
+                $limitToPublicItems = false;
+            } else {
+                $limitToPublicItems = true;
+            }
+
+            // Execute the query.
+            $results = $this->_search($start, $limit, $limitToPublicItems);
+
+            // Set the pagination.
+            Zend_Registry::set('pagination', array(
+                'page'          => $page,
+                'total_results' => $results->response->numFound,
+                'per_page'      => $limit
+            ));
+
+            // Push results to the view.
+            $this->session->page_nr = 1;
+            $this->view->results = $results;
+            
+            $this->_helper->json(print_r($results, true));
+        }
 
     /**
      * Cache the facets table.

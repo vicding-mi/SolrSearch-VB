@@ -131,6 +131,8 @@ class SolrSearch_Helpers_Index
         $doc->setField('model', 'Item');
         $doc->setField('modelid', $item->id);
 
+        $doc->setField('owner_id', $item->owner_id);
+
         // extend $doc to to include and items public / private status
         $doc->setField('public', $item->public);
 
