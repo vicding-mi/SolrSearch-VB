@@ -188,7 +188,7 @@ if ($facet_order) {
             
             
             <tr>
-                <?php $label = __('Geographic Address') . " (" . __("Place of narration") . ")"; ?>
+                <?php $label = __("Place of narration") . " (radius)"; ?>
                 <td style="vertical-align: top;" width="100px"><strong><?php echo $label; ?></strong></td>
                 <td></td>
                 <td>
