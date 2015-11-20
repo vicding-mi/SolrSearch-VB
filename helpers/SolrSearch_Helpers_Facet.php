@@ -24,8 +24,6 @@ class SolrSearch_Helpers_Facet
 
         if (array_key_exists('facet', $_GET)) {
             // Extract the field/value facet pairs.
-//            preg_match_all('/(?P<field>[\w]+):[\*"](?P<value>[^\*"]+)[\*"]/',
-//            preg_match_all('/(?P<field>[\w]+):[\*](?P<value>[^\*"]+)[\*]/',
             preg_match_all('/(?P<field>[\w]+(_[ts])*):(?P<value>[\w"\*\+]+)/',
                 $_GET['facet'], $matches
             );
