@@ -1,0 +1,596 @@
+INFO  - 2015-11-20 13:10:14.706; org.apache.solr.servlet.SolrDispatchFilter; SolrDispatchFilter.init()
+INFO  - 2015-11-20 13:10:14.758; org.apache.solr.core.SolrResourceLoader; Using JNDI solr.home: /Applications/MAMP/solr4.6
+INFO  - 2015-11-20 13:10:14.759; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: '/Applications/MAMP/solr4.6/'
+INFO  - 2015-11-20 13:10:14.965; org.apache.solr.core.ConfigSolr; Loading container configuration from /Applications/MAMP/solr4.6/solr.xml
+INFO  - 2015-11-20 13:10:14.972; org.apache.solr.core.ConfigSolr; /Applications/MAMP/solr4.6/solr.xml does not exist, using default configuration
+INFO  - 2015-11-20 13:10:15.600; org.apache.solr.core.CoreContainer; New CoreContainer 1580255587
+INFO  - 2015-11-20 13:10:15.600; org.apache.solr.core.CoreContainer; Loading cores into CoreContainer [instanceDir=/Applications/MAMP/solr4.6/]
+INFO  - 2015-11-20 13:10:15.624; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting socketTimeout to: 0
+INFO  - 2015-11-20 13:10:15.625; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting urlScheme to: http://
+INFO  - 2015-11-20 13:10:15.625; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting connTimeout to: 0
+INFO  - 2015-11-20 13:10:15.626; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maxConnectionsPerHost to: 20
+INFO  - 2015-11-20 13:10:15.626; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting corePoolSize to: 0
+INFO  - 2015-11-20 13:10:15.626; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maximumPoolSize to: 2147483647
+INFO  - 2015-11-20 13:10:15.626; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maxThreadIdleTime to: 5
+INFO  - 2015-11-20 13:10:15.626; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting sizeOfQueue to: -1
+INFO  - 2015-11-20 13:10:15.627; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting fairnessPolicy to: false
+INFO  - 2015-11-20 13:10:16.204; org.apache.solr.logging.LogWatcher; SLF4J impl is org.slf4j.impl.Log4jLoggerFactory
+INFO  - 2015-11-20 13:10:16.205; org.apache.solr.logging.LogWatcher; Registering Log Listener [Log4j (org.slf4j.impl.Log4jLoggerFactory)]
+INFO  - 2015-11-20 13:10:16.358; org.apache.solr.core.CoreContainer; Creating SolrCore 'collection1' using instanceDir: /Applications/MAMP/solr4.6/collection1
+INFO  - 2015-11-20 13:10:16.360; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: '/Applications/MAMP/solr4.6/collection1/'
+INFO  - 2015-11-20 13:10:16.489; org.apache.solr.core.SolrConfig; Adding specified lib dirs to ClassLoader
+WARN  - 2015-11-20 13:10:16.508; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/extraction/lib (resolved as: /Applications/MAMP/solr4.6/collection1/../../../contrib/extraction/lib).
+WARN  - 2015-11-20 13:10:16.537; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Applications/MAMP/solr4.6/collection1/../../../dist).
+WARN  - 2015-11-20 13:10:16.538; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/clustering/lib/ (resolved as: /Applications/MAMP/solr4.6/collection1/../../../contrib/clustering/lib).
+WARN  - 2015-11-20 13:10:16.538; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Applications/MAMP/solr4.6/collection1/../../../dist).
+WARN  - 2015-11-20 13:10:16.538; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/langid/lib/ (resolved as: /Applications/MAMP/solr4.6/collection1/../../../contrib/langid/lib).
+WARN  - 2015-11-20 13:10:16.539; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Applications/MAMP/solr4.6/collection1/../../../dist).
+WARN  - 2015-11-20 13:10:16.539; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/velocity/lib (resolved as: /Applications/MAMP/solr4.6/collection1/../../../contrib/velocity/lib).
+WARN  - 2015-11-20 13:10:16.540; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Applications/MAMP/solr4.6/collection1/../../../dist).
+INFO  - 2015-11-20 13:10:16.664; org.apache.solr.update.SolrIndexConfig; IndexWriter infoStream solr logging is enabled
+INFO  - 2015-11-20 13:10:16.669; org.apache.solr.core.SolrConfig; Using Lucene MatchVersion: LUCENE_46
+INFO  - 2015-11-20 13:10:16.826; org.apache.solr.core.SolrConfig; Loaded SolrConfig: solrconfig.xml
+INFO  - 2015-11-20 13:10:16.832; org.apache.solr.schema.IndexSchema; Reading Solr Schema from schema.xml
+INFO  - 2015-11-20 13:10:16.930; org.apache.solr.schema.IndexSchema; [collection1] Schema name=example
+INFO  - 2015-11-20 13:10:17.414; org.apache.solr.schema.IndexSchema; unique key field: id
+INFO  - 2015-11-20 13:10:17.617; org.apache.solr.schema.FileExchangeRateProvider; Reloading exchange rates from file currency.xml
+INFO  - 2015-11-20 13:10:17.631; org.apache.solr.schema.FileExchangeRateProvider; Reloading exchange rates from file currency.xml
+INFO  - 2015-11-20 13:10:18.057; org.apache.solr.core.SolrCore; solr.NRTCachingDirectoryFactory
+INFO  - 2015-11-20 13:10:18.068; org.apache.solr.core.SolrCore; [collection1] Opening new SolrCore at /Applications/MAMP/solr4.6/collection1/, dataDir=/Applications/MAMP/solr4.6/collection1/data/
+INFO  - 2015-11-20 13:10:18.069; org.apache.solr.core.JmxMonitoredMap; JMX monitoring is enabled. Adding Solr mbeans to JMX Server: com.sun.jmx.mbeanserver.JmxMBeanServer@2c76e369
+INFO  - 2015-11-20 13:10:18.096; org.apache.solr.core.SolrCore; [collection1] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+INFO  - 2015-11-20 13:10:18.096; org.apache.solr.core.SolrCore; [collection1] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+INFO  - 2015-11-20 13:10:18.113; org.apache.solr.core.CachingDirectoryFactory; return new directory for /Applications/MAMP/solr4.6/collection1/data
+INFO  - 2015-11-20 13:10:18.139; org.apache.solr.core.SolrCore; New index directory detected: old=null new=/Applications/MAMP/solr4.6/collection1/data/index/
+INFO  - 2015-11-20 13:10:18.152; org.apache.solr.core.CachingDirectoryFactory; return new directory for /Applications/MAMP/solr4.6/collection1/data/index
+INFO  - 2015-11-20 13:10:18.314; org.apache.solr.core.SolrCore; created json: solr.JSONResponseWriter
+INFO  - 2015-11-20 13:10:18.315; org.apache.solr.core.SolrCore; adding lazy queryResponseWriter: solr.VelocityResponseWriter
+INFO  - 2015-11-20 13:10:18.316; org.apache.solr.core.SolrCore; created velocity: solr.VelocityResponseWriter
+INFO  - 2015-11-20 13:10:18.320; org.apache.solr.core.SolrCore; created xslt: solr.XSLTResponseWriter
+INFO  - 2015-11-20 13:10:18.320; org.apache.solr.response.XSLTResponseWriter; xsltCacheLifetimeSeconds=5
+INFO  - 2015-11-20 13:10:18.423; org.apache.solr.core.SolrCore; no updateRequestProcessorChain defined as default, creating implicit default
+INFO  - 2015-11-20 13:10:18.435; org.apache.solr.core.RequestHandlers; created /select: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.435; org.apache.solr.core.RequestHandlers; created /query: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.437; org.apache.solr.core.RequestHandlers; created /get: solr.RealTimeGetHandler
+INFO  - 2015-11-20 13:10:18.438; org.apache.solr.core.RequestHandlers; created /browse: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.441; org.apache.solr.core.RequestHandlers; created /update: solr.UpdateRequestHandler
+WARN  - 2015-11-20 13:10:18.443; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.JsonUpdateRequestHandler]. Please consult documentation how to replace it accordingly.
+INFO  - 2015-11-20 13:10:18.444; org.apache.solr.core.RequestHandlers; created /update/json: solr.JsonUpdateRequestHandler
+WARN  - 2015-11-20 13:10:18.445; org.apache.solr.core.SolrResourceLoader; Solr loaded a deprecated plugin/analysis class [solr.CSVRequestHandler]. Please consult documentation how to replace it accordingly.
+INFO  - 2015-11-20 13:10:18.446; org.apache.solr.core.RequestHandlers; created /update/csv: solr.CSVRequestHandler
+INFO  - 2015-11-20 13:10:18.446; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.extraction.ExtractingRequestHandler
+INFO  - 2015-11-20 13:10:18.447; org.apache.solr.core.RequestHandlers; created /update/extract: solr.extraction.ExtractingRequestHandler
+INFO  - 2015-11-20 13:10:18.447; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+INFO  - 2015-11-20 13:10:18.447; org.apache.solr.core.RequestHandlers; created /analysis/field: solr.FieldAnalysisRequestHandler
+INFO  - 2015-11-20 13:10:18.447; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.DocumentAnalysisRequestHandler
+INFO  - 2015-11-20 13:10:18.447; org.apache.solr.core.RequestHandlers; created /analysis/document: solr.DocumentAnalysisRequestHandler
+INFO  - 2015-11-20 13:10:18.449; org.apache.solr.core.RequestHandlers; created /admin/: solr.admin.AdminHandlers
+INFO  - 2015-11-20 13:10:18.451; org.apache.solr.core.RequestHandlers; created /admin/ping: solr.PingRequestHandler
+INFO  - 2015-11-20 13:10:18.453; org.apache.solr.core.RequestHandlers; created /debug/dump: solr.DumpRequestHandler
+INFO  - 2015-11-20 13:10:18.461; org.apache.solr.core.RequestHandlers; created /replication: solr.ReplicationHandler
+INFO  - 2015-11-20 13:10:18.461; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.461; org.apache.solr.core.RequestHandlers; created /spell: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.461; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.461; org.apache.solr.core.RequestHandlers; created /tvrh: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.462; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: org.apache.solr.handler.js.JavaScriptRequestHandler
+INFO  - 2015-11-20 13:10:18.462; org.apache.solr.core.RequestHandlers; created /js: org.apache.solr.handler.js.JavaScriptRequestHandler
+INFO  - 2015-11-20 13:10:18.462; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.462; org.apache.solr.core.RequestHandlers; created /terms: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.462; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.462; org.apache.solr.core.RequestHandlers; created /elevate: solr.SearchHandler
+INFO  - 2015-11-20 13:10:18.510; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2015-11-20 13:10:18.513; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2015-11-20 13:10:18.513; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2015-11-20 13:10:18.677; org.apache.solr.update.CommitTracker; Hard AutoCommit: if uncommited for 15000ms; 
+INFO  - 2015-11-20 13:10:18.677; org.apache.solr.update.CommitTracker; Soft AutoCommit: disabled
+INFO  - 2015-11-20 13:10:18.759; org.apache.solr.core.SolrDeletionPolicy; SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/solr4.6/collection1/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@6f24d504; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_1,generation=1}
+INFO  - 2015-11-20 13:10:18.760; org.apache.solr.core.SolrDeletionPolicy; newest commit generation = 1
+INFO  - 2015-11-20 13:10:18.766; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@6c533246 main
+INFO  - 2015-11-20 13:10:18.771; org.apache.solr.handler.component.SpellCheckComponent; Initializing spell checkers
+INFO  - 2015-11-20 13:10:18.778; org.apache.solr.spelling.DirectSolrSpellChecker; init: {name=default,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4,maxQueryFrequency=0.01}
+INFO  - 2015-11-20 13:10:18.784; org.apache.solr.handler.component.SpellCheckComponent; No queryConverter defined, using default converter
+INFO  - 2015-11-20 13:10:18.789; org.apache.solr.handler.component.QueryElevationComponent; Loading QueryElevation from: /Applications/MAMP/solr4.6/collection1/conf/elevate.xml
+INFO  - 2015-11-20 13:10:18.834; org.apache.solr.handler.ReplicationHandler; Commits will be reserved for  10000
+INFO  - 2015-11-20 13:10:18.834; org.apache.solr.core.QuerySenderListener; QuerySenderListener sending requests to Searcher@6c533246 main{StandardDirectoryReader(segments_1:1:nrt)}
+INFO  - 2015-11-20 13:10:18.886; org.apache.solr.core.SolrCore; [collection1] webapp=null path=null params={event=firstSearcher&q=static+firstSearcher+warming+in+solrconfig.xml&distrib=false} hits=0 status=0 QTime=48 
+INFO  - 2015-11-20 13:10:18.886; org.apache.solr.core.QuerySenderListener; QuerySenderListener done.
+INFO  - 2015-11-20 13:10:18.887; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: default
+INFO  - 2015-11-20 13:10:18.888; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: wordbreak
+INFO  - 2015-11-20 13:10:18.892; org.apache.solr.core.SolrCore; [collection1] Registered new searcher Searcher@6c533246 main{StandardDirectoryReader(segments_1:1:nrt)}
+INFO  - 2015-11-20 13:10:18.895; org.apache.solr.core.CoreContainer; registering core: collection1
+INFO  - 2015-11-20 13:10:18.897; org.apache.solr.servlet.SolrDispatchFilter; user.dir=/Applications/MAMP/htdocs/vb2.2.2/plugins/SolrSearch
+INFO  - 2015-11-20 13:10:18.897; org.apache.solr.servlet.SolrDispatchFilter; SolrDispatchFilter.init() done
+INFO  - 2015-11-20 13:11:27.504; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/cores params={indexInfo=false&_=1448021487488&wt=json} status=0 QTime=3 
+INFO  - 2015-11-20 13:11:27.626; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/info/system params={_=1448021487548&wt=json} status=0 QTime=60 
+INFO  - 2015-11-20 13:11:28.300; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/cores params={_=1448021488282&wt=json} status=0 QTime=3 
+INFO  - 2015-11-20 13:11:28.410; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/cores params={_=1448021488323&wt=json} status=0 QTime=0 
+INFO  - 2015-11-20 13:11:33.917; org.apache.solr.core.CoreContainer; Creating SolrCore 'omeka' using instanceDir: /Applications/MAMP/solr4.6/omeka
+INFO  - 2015-11-20 13:11:33.917; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: '/Applications/MAMP/solr4.6/omeka/'
+INFO  - 2015-11-20 13:11:34.055; org.apache.solr.core.SolrConfig; Adding specified lib dirs to ClassLoader
+WARN  - 2015-11-20 13:11:34.055; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/extraction/lib (resolved as: /Applications/MAMP/solr4.6/omeka/../../../contrib/extraction/lib).
+WARN  - 2015-11-20 13:11:34.056; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Applications/MAMP/solr4.6/omeka/../../../dist).
+WARN  - 2015-11-20 13:11:34.056; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/clustering/lib/ (resolved as: /Applications/MAMP/solr4.6/omeka/../../../contrib/clustering/lib).
+WARN  - 2015-11-20 13:11:34.056; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Applications/MAMP/solr4.6/omeka/../../../dist).
+WARN  - 2015-11-20 13:11:34.056; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/langid/lib/ (resolved as: /Applications/MAMP/solr4.6/omeka/../../../contrib/langid/lib).
+WARN  - 2015-11-20 13:11:34.056; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Applications/MAMP/solr4.6/omeka/../../../dist).
+WARN  - 2015-11-20 13:11:34.056; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../contrib/velocity/lib (resolved as: /Applications/MAMP/solr4.6/omeka/../../../contrib/velocity/lib).
+WARN  - 2015-11-20 13:11:34.057; org.apache.solr.core.SolrResourceLoader; Can't find (or read) directory to add to classloader: ../../../dist/ (resolved as: /Applications/MAMP/solr4.6/omeka/../../../dist).
+INFO  - 2015-11-20 13:11:34.081; org.apache.solr.update.SolrIndexConfig; IndexWriter infoStream solr logging is enabled
+INFO  - 2015-11-20 13:11:34.083; org.apache.solr.core.SolrConfig; Using Lucene MatchVersion: LUCENE_46
+INFO  - 2015-11-20 13:11:34.131; org.apache.solr.core.SolrConfig; Loaded SolrConfig: solrconfig.xml
+INFO  - 2015-11-20 13:11:34.132; org.apache.solr.schema.IndexSchema; Reading Solr Schema from schema.xml
+INFO  - 2015-11-20 13:11:34.254; org.apache.solr.schema.IndexSchema; [omeka] Schema name=SolrSearch
+INFO  - 2015-11-20 13:11:34.899; org.apache.solr.schema.IndexSchema; unique key field: id
+INFO  - 2015-11-20 13:11:35.502; org.apache.solr.schema.FileExchangeRateProvider; Reloading exchange rates from file currency.xml
+INFO  - 2015-11-20 13:11:35.510; org.apache.solr.schema.FileExchangeRateProvider; Reloading exchange rates from file currency.xml
+INFO  - 2015-11-20 13:11:35.605; org.apache.solr.core.SolrCore; solr.NRTCachingDirectoryFactory
+INFO  - 2015-11-20 13:11:35.606; org.apache.solr.core.SolrCore; [omeka] Opening new SolrCore at /Applications/MAMP/solr4.6/omeka/, dataDir=/Applications/MAMP/solr4.6/omeka/data/
+INFO  - 2015-11-20 13:11:35.606; org.apache.solr.core.JmxMonitoredMap; JMX monitoring is enabled. Adding Solr mbeans to JMX Server: com.sun.jmx.mbeanserver.JmxMBeanServer@2c76e369
+INFO  - 2015-11-20 13:11:35.608; org.apache.solr.core.SolrCore; [omeka] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+INFO  - 2015-11-20 13:11:35.608; org.apache.solr.core.SolrCore; [omeka] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+INFO  - 2015-11-20 13:11:35.608; org.apache.solr.core.CachingDirectoryFactory; return new directory for /Applications/MAMP/solr4.6/omeka/data
+INFO  - 2015-11-20 13:11:35.620; org.apache.solr.core.SolrCore; New index directory detected: old=null new=/Applications/MAMP/solr4.6/omeka/data/index/
+INFO  - 2015-11-20 13:11:35.683; org.apache.solr.core.CachingDirectoryFactory; return new directory for /Applications/MAMP/solr4.6/omeka/data/index
+INFO  - 2015-11-20 13:11:35.703; org.apache.solr.core.SolrCore; created json: solr.JSONResponseWriter
+INFO  - 2015-11-20 13:11:35.703; org.apache.solr.core.SolrCore; adding lazy queryResponseWriter: solr.VelocityResponseWriter
+INFO  - 2015-11-20 13:11:35.703; org.apache.solr.core.SolrCore; created velocity: solr.VelocityResponseWriter
+INFO  - 2015-11-20 13:11:35.704; org.apache.solr.core.SolrCore; created xslt: solr.XSLTResponseWriter
+INFO  - 2015-11-20 13:11:35.704; org.apache.solr.response.XSLTResponseWriter; xsltCacheLifetimeSeconds=5
+INFO  - 2015-11-20 13:11:35.710; org.apache.solr.core.SolrCore; no updateRequestProcessorChain defined as default, creating implicit default
+INFO  - 2015-11-20 13:11:35.711; org.apache.solr.core.RequestHandlers; created /select: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.713; org.apache.solr.core.RequestHandlers; created /query: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.714; org.apache.solr.core.RequestHandlers; created /get: solr.RealTimeGetHandler
+INFO  - 2015-11-20 13:11:35.715; org.apache.solr.core.RequestHandlers; created /browse: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.716; org.apache.solr.core.RequestHandlers; created /update: solr.UpdateRequestHandler
+INFO  - 2015-11-20 13:11:35.718; org.apache.solr.core.RequestHandlers; created /update/json: solr.JsonUpdateRequestHandler
+INFO  - 2015-11-20 13:11:35.719; org.apache.solr.core.RequestHandlers; created /update/csv: solr.CSVRequestHandler
+INFO  - 2015-11-20 13:11:35.720; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.extraction.ExtractingRequestHandler
+INFO  - 2015-11-20 13:11:35.720; org.apache.solr.core.RequestHandlers; created /update/extract: solr.extraction.ExtractingRequestHandler
+INFO  - 2015-11-20 13:11:35.720; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+INFO  - 2015-11-20 13:11:35.721; org.apache.solr.core.RequestHandlers; created /analysis/field: solr.FieldAnalysisRequestHandler
+INFO  - 2015-11-20 13:11:35.721; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.DocumentAnalysisRequestHandler
+INFO  - 2015-11-20 13:11:35.722; org.apache.solr.core.RequestHandlers; created /analysis/document: solr.DocumentAnalysisRequestHandler
+INFO  - 2015-11-20 13:11:35.740; org.apache.solr.core.RequestHandlers; created /admin/: solr.admin.AdminHandlers
+INFO  - 2015-11-20 13:11:35.741; org.apache.solr.core.RequestHandlers; created /admin/ping: solr.PingRequestHandler
+INFO  - 2015-11-20 13:11:35.742; org.apache.solr.core.RequestHandlers; created /debug/dump: solr.DumpRequestHandler
+INFO  - 2015-11-20 13:11:35.742; org.apache.solr.core.RequestHandlers; created /replication: solr.ReplicationHandler
+INFO  - 2015-11-20 13:11:35.742; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.743; org.apache.solr.core.RequestHandlers; created /spell: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.743; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.743; org.apache.solr.core.RequestHandlers; created /tvrh: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.743; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: org.apache.solr.handler.js.JavaScriptRequestHandler
+INFO  - 2015-11-20 13:11:35.743; org.apache.solr.core.RequestHandlers; created /js: org.apache.solr.handler.js.JavaScriptRequestHandler
+INFO  - 2015-11-20 13:11:35.744; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.744; org.apache.solr.core.RequestHandlers; created /terms: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.744; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.744; org.apache.solr.core.RequestHandlers; created /elevate: solr.SearchHandler
+INFO  - 2015-11-20 13:11:35.745; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2015-11-20 13:11:35.745; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2015-11-20 13:11:35.746; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2015-11-20 13:11:35.818; org.apache.solr.update.CommitTracker; Hard AutoCommit: if uncommited for 15000ms; 
+INFO  - 2015-11-20 13:11:35.818; org.apache.solr.update.CommitTracker; Soft AutoCommit: disabled
+INFO  - 2015-11-20 13:11:35.859; org.apache.solr.core.SolrDeletionPolicy; SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/solr4.6/omeka/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@59c27402; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_90g,generation=11680}
+INFO  - 2015-11-20 13:11:35.860; org.apache.solr.core.SolrDeletionPolicy; newest commit generation = 11680
+INFO  - 2015-11-20 13:11:36.173; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@5c6a9e79 main
+INFO  - 2015-11-20 13:11:36.176; org.apache.solr.handler.component.SpellCheckComponent; Initializing spell checkers
+INFO  - 2015-11-20 13:11:36.176; org.apache.solr.spelling.DirectSolrSpellChecker; init: {name=default,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4,maxQueryFrequency=0.01}
+INFO  - 2015-11-20 13:11:36.177; org.apache.solr.handler.component.SpellCheckComponent; No queryConverter defined, using default converter
+INFO  - 2015-11-20 13:11:36.178; org.apache.solr.handler.component.QueryElevationComponent; Loading QueryElevation from: /Applications/MAMP/solr4.6/omeka/conf/elevate.xml
+INFO  - 2015-11-20 13:11:36.289; org.apache.solr.handler.ReplicationHandler; Commits will be reserved for  10000
+INFO  - 2015-11-20 13:11:36.289; org.apache.solr.core.QuerySenderListener; QuerySenderListener sending requests to Searcher@5c6a9e79 main{StandardDirectoryReader(segments_90g:48034:nrt _htx(4.6):C44708)}
+INFO  - 2015-11-20 13:11:36.592; org.apache.solr.core.SolrCore; [omeka] webapp=null path=null params={event=firstSearcher&q=static+firstSearcher+warming+in+solrconfig.xml&distrib=false} hits=36508 status=0 QTime=302 
+INFO  - 2015-11-20 13:11:36.802; org.apache.solr.core.QuerySenderListener; QuerySenderListener done.
+INFO  - 2015-11-20 13:11:36.802; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: default
+INFO  - 2015-11-20 13:11:36.803; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: wordbreak
+INFO  - 2015-11-20 13:11:36.808; org.apache.solr.core.SolrCore; [omeka] Registered new searcher Searcher@5c6a9e79 main{StandardDirectoryReader(segments_90g:48034:nrt _htx(4.6):C44708)}
+INFO  - 2015-11-20 13:11:36.812; org.apache.solr.core.CoreContainer; registering core: omeka
+INFO  - 2015-11-20 13:11:36.812; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/cores params={schema=schema.xml&shard=&instanceDir=omeka&indexInfo=false&name=omeka&action=CREATE&config=solrconfig.xml&_=1448021493837&collection=&dataDir=data&wt=json} status=0 QTime=2963 
+INFO  - 2015-11-20 13:11:36.887; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/cores params={_=1448021496819&wt=json} status=0 QTime=57 
+INFO  - 2015-11-20 13:11:44.353; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=tag,memSize=1588989,tindexSize=6332,time=529,phase1=518,nTerms=45885,bigTerms=16,termInstances=621616,uses=0}
+INFO  - 2015-11-20 13:11:44.575; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=39_s,memSize=196222,tindexSize=814,time=81,phase1=81,nTerms=3979,bigTerms=0,termInstances=36144,uses=0}
+INFO  - 2015-11-20 13:11:44.619; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=44_s,memSize=183531,tindexSize=73,time=39,phase1=39,nTerms=132,bigTerms=3,termInstances=7929,uses=0}
+INFO  - 2015-11-20 13:11:44.654; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=51_s,memSize=183458,tindexSize=41,time=32,phase1=32,nTerms=23,bigTerms=3,termInstances=7067,uses=0}
+INFO  - 2015-11-20 13:11:44.659; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=52_s,memSize=190093,tindexSize=195,time=3,phase1=3,nTerms=1531,bigTerms=0,termInstances=3435,uses=0}
+INFO  - 2015-11-20 13:11:44.701; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=58_s,memSize=183477,tindexSize=57,time=39,phase1=39,nTerms=13,bigTerms=3,termInstances=5754,uses=0}
+INFO  - 2015-11-20 13:11:44.711; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=60_s,memSize=188172,tindexSize=315,time=8,phase1=7,nTerms=1482,bigTerms=2,termInstances=23440,uses=0}
+INFO  - 2015-11-20 13:11:44.771; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=61_s,memSize=183257,tindexSize=42,time=56,phase1=56,nTerms=7,bigTerms=1,termInstances=2629,uses=0}
+INFO  - 2015-11-20 13:11:44.777; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=62_s,memSize=183257,tindexSize=42,time=4,phase1=4,nTerms=2,bigTerms=1,termInstances=745,uses=0}
+INFO  - 2015-11-20 13:11:44.873; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=63_s,memSize=403795,tindexSize=4719,time=94,phase1=94,nTerms=30073,bigTerms=0,termInstances=65684,uses=0}
+INFO  - 2015-11-20 13:11:44.880; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=65_s,memSize=187742,tindexSize=248,time=2,phase1=2,nTerms=1099,bigTerms=0,termInstances=2939,uses=0}
+INFO  - 2015-11-20 13:11:44.887; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=67_s,memSize=183349,tindexSize=126,time=5,phase1=5,nTerms=468,bigTerms=1,termInstances=27166,uses=0}
+INFO  - 2015-11-20 13:11:44.955; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=93_s,memSize=257613,tindexSize=1245,time=67,phase1=66,nTerms=8600,bigTerms=0,termInstances=41601,uses=0}
+INFO  - 2015-11-20 13:11:44.981; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=94_s,memSize=187458,tindexSize=242,time=21,phase1=21,nTerms=1844,bigTerms=0,termInstances=44708,uses=0}
+INFO  - 2015-11-20 13:11:44.987; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=95_s,memSize=183558,tindexSize=47,time=4,phase1=4,nTerms=6,bigTerms=4,termInstances=2725,uses=0}
+INFO  - 2015-11-20 13:11:45.190; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=decennium_group,memSize=183644,tindexSize=44,time=47,phase1=47,nTerms=68,bigTerms=5,termInstances=7002,uses=0}
+INFO  - 2015-11-20 13:11:46.496; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+latitude:[52.26297310990991+TO+52.443153290090095]+AND+longitude:[4.750265333333307+TO+5.083598666666641]&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=2357 status=0 QTime=2770 
+INFO  - 2015-11-20 13:12:03.782; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag:"seks"&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=1659 status=0 QTime=939 
+INFO  - 2015-11-20 13:14:06.289; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:seks&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=1670 status=0 QTime=909 
+INFO  - 2015-11-20 13:49:22.427; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=tag_t,memSize=1579761,tindexSize=5689,time=226,phase1=222,nTerms=41809,bigTerms=16,termInstances=629061,uses=0}
+INFO  - 2015-11-20 13:49:22.527; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={facet=true&facet.mincount=1&start=0&q=*:*&facet.prefix=te&facet.limit=15&json.nl=map&facet.field=tag_t&wt=json&rows=0} hits=44708 status=0 QTime=334 
+INFO  - 2015-11-20 13:50:04.437; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:seks&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=1670 status=0 QTime=333 
+INFO  - 2015-11-20 13:50:08.635; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag:"boer"+AND+tag_t:seks&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=127 status=0 QTime=1169 
+INFO  - 2015-11-20 14:06:07.900; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=administrative_area_level_1_t,memSize=183857,tindexSize=45,time=55,phase1=55,nTerms=75,bigTerms=7,termInstances=5868,uses=0}
+INFO  - 2015-11-20 14:06:07.954; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={facet=true&facet.mincount=1&start=0&q=*:*&facet.prefix=fr&facet.limit=15&json.nl=map&facet.field=administrative_area_level_1_t&wt=json&rows=0} hits=44708 status=0 QTime=110 
+INFO  - 2015-11-20 14:06:11.840; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:seks+AND+tag_t:boer+AND+administrative_area_level_1_t:friesland&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=63 status=0 QTime=1657 
+INFO  - 2015-11-20 14:06:26.128; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:seks+AND+administrative_area_level_1_t:friesland&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=199 status=0 QTime=1267 
+INFO  - 2015-11-20 14:06:35.300; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:seks+AND+administrative_area_level_1_t:friesland&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=199 status=0 QTime=166 
+INFO  - 2015-11-20 14:07:07.452; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((tag_t:seks+AND+administrative_area_level_1_t:friesland))+AND+public:"true"&wt=json&rows=999999} hits=199 status=0 QTime=151 
+INFO  - 2015-11-20 14:07:29.140; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:seks+AND+administrative_area_level_1_t:friesland&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=199 status=0 QTime=179 
+INFO  - 2015-11-20 14:10:21.789; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((tag_t:seks+AND+administrative_area_level_1_t:friesland))+AND+public:"true"&wt=json&rows=999999} hits=199 status=0 QTime=2 
+INFO  - 2015-11-20 14:13:58.129; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((tag_t:seks+AND+administrative_area_level_1_t:friesland))+AND+public:"true"&wt=json&rows=999999} hits=199 status=0 QTime=2 
+INFO  - 2015-11-20 14:14:04.591; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:seks+AND+administrative_area_level_1_t:friesland?free%3D&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=0 status=0 QTime=353 
+INFO  - 2015-11-20 14:14:06.574; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=44708 status=0 QTime=222 
+INFO  - 2015-11-20 14:14:10.118; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag:"sterven"&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3452 status=0 QTime=268 
+INFO  - 2015-11-20 14:14:16.961; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:sterven&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3463 status=0 QTime=847 
+INFO  - 2015-11-20 14:14:22.645; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((tag_t:sterven))+AND+public:"true"&wt=json&rows=999999} hits=3462 status=0 QTime=31 
+ERROR - 2015-11-20 14:14:40.313; org.apache.solr.common.SolrException; org.apache.solr.common.SolrException: org.apache.solr.search.SyntaxError: Cannot parse '*:* AND ?free=tag_t:sterven': Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:171)
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:187)
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:1859)
+	at org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:721)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:417)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:201)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:225)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1001)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: org.apache.solr.search.SyntaxError: Cannot parse '*:* AND ?free=tag_t:sterven': Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.parser.SolrQueryParserBase.parse(SolrQueryParserBase.java:157)
+	at org.apache.solr.search.LuceneQParser.parse(LuceneQParser.java:50)
+	at org.apache.solr.search.QParser.getQuery(QParser.java:142)
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:142)
+	... 21 more
+Caused by: org.apache.solr.parser.ParseException: Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.parser.QueryParser.generateParseException(QueryParser.java:651)
+	at org.apache.solr.parser.QueryParser.jj_consume_token(QueryParser.java:533)
+	at org.apache.solr.parser.QueryParser.TopLevelQuery(QueryParser.java:98)
+	at org.apache.solr.parser.SolrQueryParserBase.parse(SolrQueryParserBase.java:153)
+	... 24 more
+
+INFO  - 2015-11-20 14:14:40.340; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+?free%3Dtag_t:sterven&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} status=400 QTime=51 
+ERROR - 2015-11-20 14:14:48.343; org.apache.solr.common.SolrException; org.apache.solr.common.SolrException: org.apache.solr.search.SyntaxError: Cannot parse '*:* AND ?free=tag_t:{sterven}': Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:171)
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:187)
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:1859)
+	at org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:721)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:417)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:201)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:225)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1001)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: org.apache.solr.search.SyntaxError: Cannot parse '*:* AND ?free=tag_t:{sterven}': Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.parser.SolrQueryParserBase.parse(SolrQueryParserBase.java:157)
+	at org.apache.solr.search.LuceneQParser.parse(LuceneQParser.java:50)
+	at org.apache.solr.search.QParser.getQuery(QParser.java:142)
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:142)
+	... 21 more
+Caused by: org.apache.solr.parser.ParseException: Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.parser.QueryParser.generateParseException(QueryParser.java:651)
+	at org.apache.solr.parser.QueryParser.jj_consume_token(QueryParser.java:533)
+	at org.apache.solr.parser.QueryParser.TopLevelQuery(QueryParser.java:98)
+	at org.apache.solr.parser.SolrQueryParserBase.parse(SolrQueryParserBase.java:153)
+	... 24 more
+
+INFO  - 2015-11-20 14:14:48.343; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+?free%3Dtag_t:{sterven}&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} status=400 QTime=2 
+ERROR - 2015-11-20 14:14:57.955; org.apache.solr.common.SolrException; org.apache.solr.common.SolrException: org.apache.solr.search.SyntaxError: Cannot parse '*:* AND ?free=tag_t:sterven': Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:171)
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:187)
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:1859)
+	at org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:721)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:417)
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:201)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:225)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1001)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: org.apache.solr.search.SyntaxError: Cannot parse '*:* AND ?free=tag_t:sterven': Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.parser.SolrQueryParserBase.parse(SolrQueryParserBase.java:157)
+	at org.apache.solr.search.LuceneQParser.parse(LuceneQParser.java:50)
+	at org.apache.solr.search.QParser.getQuery(QParser.java:142)
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:142)
+	... 21 more
+Caused by: org.apache.solr.parser.ParseException: Encountered " ":" ": "" at line 1, column 19.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <LPARAMS> ...
+    <NUMBER> ...
+    
+	at org.apache.solr.parser.QueryParser.generateParseException(QueryParser.java:651)
+	at org.apache.solr.parser.QueryParser.jj_consume_token(QueryParser.java:533)
+	at org.apache.solr.parser.QueryParser.TopLevelQuery(QueryParser.java:98)
+	at org.apache.solr.parser.SolrQueryParserBase.parse(SolrQueryParserBase.java:153)
+	... 24 more
+
+INFO  - 2015-11-20 14:14:57.956; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+?free%3Dtag_t:sterven&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} status=400 QTime=2 
+INFO  - 2015-11-20 14:15:00.759; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((tag_t:sterven))+AND+public:"true"&wt=json&rows=999999} hits=3462 status=0 QTime=32 
+INFO  - 2015-11-20 14:15:19.880; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((tag_t:sterven))+AND+public:"true"&wt=json&rows=999999} hits=3462 status=0 QTime=38 
+INFO  - 2015-11-20 14:15:57.433; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((tag_t:aap))+AND+public:"true"&wt=json&rows=999999} hits=140 status=0 QTime=25 
+INFO  - 2015-11-20 14:16:03.624; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:aap&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=141 status=0 QTime=539 
+INFO  - 2015-11-20 14:17:01.685; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+tag_t:aap&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=141 status=0 QTime=200 
+INFO  - 2015-11-20 14:17:29.529; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={fl=score,*&q=modelid:10832&rows=800} hits=1 status=0 QTime=25 
+INFO  - 2015-11-20 14:17:29.879; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=score,*&start=0&q=subject:"AT+2200"^20+OR+subject:"ATU+2200"^20+OR+subgenre:"mop"^1+OR+motif:"Z13"^1+OR+tag:"aap"^0.7+OR+tag:"bakken"^0.7+OR+tag:"domheid"^0.7+OR+tag:"eten"^0.7+OR+tag:"vragen"^0.7+OR+tag:"wafel"^0.7&rows=50} hits=12919 status=0 QTime=64 
+INFO  - 2015-11-20 14:21:34.026; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=1_t,memSize=5987820,tindexSize=31893,time=777,phase1=764,nTerms=245418,bigTerms=216,termInstances=2547047,uses=0}
+INFO  - 2015-11-20 14:21:34.086; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={facet=true&facet.mincount=1&start=0&q=*:*&facet.prefix=aap&facet.limit=15&json.nl=map&facet.field=1_t&wt=json&rows=0} hits=44708 status=0 QTime=838 
+INFO  - 2015-11-20 14:21:40.997; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={facet=true&facet.mincount=1&start=0&q=*:*&facet.prefix=aapmen&facet.limit=15&json.nl=map&facet.field=1_t&wt=json&rows=0} hits=44708 status=0 QTime=18 
+INFO  - 2015-11-20 14:21:41.918; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={facet=true&facet.mincount=1&start=0&q=*:*&facet.prefix=aapmen*&facet.limit=15&json.nl=map&facet.field=1_t&wt=json&rows=0} hits=44708 status=0 QTime=377 
+INFO  - 2015-11-20 14:21:43.039; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=433 
+INFO  - 2015-11-20 14:22:22.490; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=25&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:22.625; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=50&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:22.633; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=50&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=7 
+INFO  - 2015-11-20 14:22:22.640; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=50&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:22.738; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=75&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=4 
+INFO  - 2015-11-20 14:22:24.719; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=100&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:24.988; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=125&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:24.988; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=125&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:24.998; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=125&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:25.024; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=125&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=8 
+INFO  - 2015-11-20 14:22:25.054; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=125&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:25.242; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=150&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:25.384; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=150&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=7 
+INFO  - 2015-11-20 14:22:25.396; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=175&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:25.423; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=175&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:25.423; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=175&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=7 
+INFO  - 2015-11-20 14:22:25.482; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=175&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:25.679; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=200&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:25.758; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=225&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:25.822; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=200&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:25.823; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=200&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:25.863; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=225&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:25.873; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=225&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:25.989; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=250&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:26.134; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=275&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:26.176; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=275&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=8 
+INFO  - 2015-11-20 14:22:26.199; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=275&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:26.211; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=275&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:26.238; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=275&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:26.400; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=300&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:26.421; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=300&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:26.502; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=325&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:26.557; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=325&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:26.564; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=325&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=5 
+INFO  - 2015-11-20 14:22:26.589; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=325&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:26.654; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=350&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=6 
+INFO  - 2015-11-20 14:22:26.697; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=350&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=7 
+INFO  - 2015-11-20 14:22:52.023; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((1_t:aapmen*))+AND+public:"true"&wt=json&rows=999999} hits=3 status=0 QTime=24 
+INFO  - 2015-11-20 14:24:38.466; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+1_t:aapmen*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=3 status=0 QTime=47 
+INFO  - 2015-11-20 14:26:03.713; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+44_t:Rijsoords&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=11 status=0 QTime=434 
+INFO  - 2015-11-20 14:26:20.192; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((44_t:Rijsoords))+AND+public:"true"&wt=json&rows=999999} hits=11 status=0 QTime=3 
+INFO  - 2015-11-20 14:27:16.674; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+44_t:Rijsoords&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=11 status=0 QTime=106 
+INFO  - 2015-11-20 14:27:37.073; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((44_t:Rijsoords))+AND+public:"true"&wt=json&rows=999999} hits=11 status=0 QTime=0 
+INFO  - 2015-11-20 14:28:10.852; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((44_t:Rijsoords))+AND+public:"true"&wt=json&rows=999999} hits=11 status=0 QTime=1 
+INFO  - 2015-11-20 14:30:15.701; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/query params={ns=&fl=locality,subgenre,longitude,latitude,id&start=0&q=((44_t:Rijsoords))+AND+public:"true"&wt=json&rows=999999} hits=11 status=0 QTime=0 
+INFO  - 2015-11-20 14:30:22.083; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+44_t:Rijsoords&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=11 status=0 QTime=110 
+INFO  - 2015-11-20 14:31:50.212; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=44708 status=0 QTime=336 
+INFO  - 2015-11-20 14:31:50.897; org.apache.solr.core.SolrCore; [omeka] webapp=/solr path=/select params={hl.fragsize=120&facet=true&facet.mincount=1&facet.limit=50&hl.fl=*_t&json.nl=map&hl.maxAnalyzedChars=51200&wt=json&hl=true&rows=25&hl.snippets=2&start=0&facet.sort=count&q=*:*+AND+latitude:[52.62199300990991+TO+52.802173190090095]+AND+longitude:[5.588365133333316+TO+5.92169846666665]&facet.field=tag&facet.field=collection&facet.field=itemtype&facet.field=resulttype&facet.field=featured&facet.field=39_s&facet.field=44_s&facet.field=51_s&facet.field=52_s&facet.field=58_s&facet.field=60_s&facet.field=61_s&facet.field=62_s&facet.field=63_s&facet.field=65_s&facet.field=67_s&facet.field=93_s&facet.field=94_s&facet.field=95_s&facet.field=locality&facet.field=administrative_area_level_2&facet.field=administrative_area_level_1&facet.field=country&facet.field=decennium_group} hits=22 status=0 QTime=892 
