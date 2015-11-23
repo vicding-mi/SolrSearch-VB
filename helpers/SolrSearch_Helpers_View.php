@@ -11,7 +11,7 @@
 class SolrSearch_Helpers_View
 {
 
-    function visualize_results_functions($_REQUEST){
+    public static function visualize_results_functions($_REQUEST){
         $q = array_key_exists("q", $_REQUEST) ? $_REQUEST["q"] : "";
         $facet = array_key_exists("facet", $_REQUEST) ? $_REQUEST["facet"] : "";
         $free = array_key_exists("free", $_REQUEST) ? $_REQUEST["free"] : "";    
@@ -35,7 +35,7 @@ class SolrSearch_Helpers_View
      * @param string $uri Action for the form.  Defaults to 'items/browse'.
      * @return string
      */
-    function link_to_advanced_search($text = null, $props = array(), $uri = null)
+    public static function link_to_advanced_search($text = null, $props = array(), $uri = null)
     {
         if (!$text) {
             $text = __('Search Items');
