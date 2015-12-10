@@ -38,6 +38,19 @@ queue_js_url("https://maps.googleapis.com/maps/api/js?sensor=false&libraries=pla
 	}
 </style>
 
+<?php if ($user = current_user()): ?>
+    <nav class="items-nav navigation secondary-nav">
+        <ul id="section-nav" class="navigation">
+            <li class="<?php if (isset($_GET['style']) &&  $_GET['style'] == 'advanced') {echo 'navigation_current';} ?>">
+                <div id="advanced-search-link"><?php echo SolrSearch_Helpers_View::link_to_advanced_search(__('Advanced Search')); ?></div><!-- ADDED BY IWE-->
+            </li>
+            <li class="<?php if (isset($_GET['style']) && $_GET['style'] == 'veryadvanced') {echo 'navigation_current';} ?>">
+                <a href="<?php echo html_escape(url('items/search?style=veryadvanced')); ?>"><u><?php echo __('Classic advanced Search'); ?></u></a>
+            </li>
+        </ul>
+    </nav>
+<?php endif; ?>
+
 <br>
 
 <div id="solr" style="border:0px">
@@ -84,8 +97,11 @@ $applied_searches = array_merge($applied_freesearch, $applied_facets);
 $ordered_applied_facets = array();
 foreach($applied_searches as $applied_facet){
     // change into free text search instead of facet string search
-    $af = str_replace("_t", "", str_replace("_w", "", $applied_facet[0]));
-    $af_t = $af . "_t";
+    $af = str_replace("_t", "", $applied_facet[0]);
+
+    $af_t = preg_replace('/_s_admin$/i', '_t_admin', $af);
+    $af_t = preg_replace('/_s$/i', '_t', $af_t);
+    
     if (!array_key_exists($af_t, $ordered_applied_facets)){
         $ordered_applied_facets[$af_t] = array();
     }
