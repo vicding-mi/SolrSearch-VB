@@ -326,21 +326,46 @@
     <field name="99_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
     <field name="100_t" type="text_nl" indexed="true" stored="true" multiValued="true"/>
 
+    <!-- admin fields -->
+    <field name="1_s_admin" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="contributor_admin" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="37_s_admin" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="creator_admin" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="39_s_admin" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="collector_admin" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="60_s_admin" type="string" indexed="true" stored="true" multiValued="true"/>
+    
+    <field name="main_text_admin" type="text_general" indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+    <field name="1_t_admin" type="text_nl"            indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+    <field name="37_t_admin" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="39_t_admin" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="60_t_admin" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+
+    <!-- general Omeka fields -->
     <field name="id" type="string" indexed="true" stored="true" required="true" /> 
     <field name="title" type="text_nl" indexed="true" stored="true" multiValued="true" />
     <field name="tag" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="collection" type="string" indexed="true" stored="true" />
     <field name="collection_id" type="int" indexed="true" stored="true" />
     <field name="owner_id" type="int" indexed="true" stored="true" />
-    <field name="public" type="boolean" indexed="true" stored="true" />
     <field name="featured" type="boolean" indexed="true" stored="true" />
     <field name="itemtype" type="string" indexed="true" stored="true" />
     <field name="itemtype_id" type="int" indexed="true" stored="true" />
     <field name="resulttype" type="string" indexed="true" stored="true" />
     <field name="model" type="string" indexed="false" stored="true" />
     <field name="modelid" type="string" indexed="true" stored="true" />
-    <field name="text" type="text_nl" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
+        
+    <!-- PRIVACY FIELDS -->
+    <field name="public" type="boolean" indexed="true" stored="true" />
+<!--    <field name="hide_creator" type="boolean" indexed="true" stored="true" />
+    <field name="hide_collector" type="boolean" indexed="true" stored="true" />
+    <field name="hide_contributor" type="boolean" indexed="true" stored="true" /> -->
+    
+    <!-- All texts fields -->
+    <field name="text" type="text_nl" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+    <!-- for logged in users: -->
+    <field name="text_admin" type="text_nl" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
 
     <!-- geologic information merged-->
     <field name="latitude" type="float" indexed="true" stored="true"/>
@@ -405,6 +430,25 @@
     <field name="action_latitude" type="float" indexed="true" stored="true"/>
     <field name="action_longitude" type="float" indexed="true" stored="true"/>
     <field name="action_zoom_level" type="int" indexed="true" stored="true"/>
+
+    <field name="action_map_type_s" type="string" indexed="true" stored="true"/>
+    <field name="action_address_s" type="string" indexed="true" stored="true"/>
+    <field name="action_route_s" type="string" indexed="true" stored="true"/>
+    <field name="action_street_number_s" type="string" indexed="true" stored="true"/>
+    <field name="action_postal_code_s"  type="string" indexed="true" stored="true"/>
+    <field name="action_postal_code_prefix_s" type="string" indexed="true" stored="true"/>
+    <field name="action_sublocality_s" type="string" indexed="true" stored="true"/>
+    <field name="action_locality_s" type="string" indexed="true" stored="true"/>
+    <field name="action_natural_feature_s" type="string" indexed="true" stored="true"/>
+    <field name="action_establishment_s" type="string" indexed="true" stored="true"/>
+    <field name="action_point_of_interest_s" type="string" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_3_s" type="string" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_2_s" type="string" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_1_s" type="string" indexed="true" stored="true"/>
+    <field name="action_country_s" type="string" indexed="true" stored="true"/>
+    <field name="action_continent_s" type="string" indexed="true" stored="true"/>
+    <field name="action_planetary_body_s" type="string" indexed="true" stored="true"/>    
+
     <field name="action_map_type" type="string" indexed="true" stored="true"/>
     <field name="action_address" type="string" indexed="true" stored="true"/>
     <field name="action_route" type="string" indexed="true" stored="true"/>
@@ -423,11 +467,29 @@
     <field name="action_continent" type="string" indexed="true" stored="true"/>
     <field name="action_planetary_body" type="string" indexed="true" stored="true"/>
 
+    <field name="action_map_type_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_address_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_route_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_street_number_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_postal_code_t"  type="text_nl" indexed="true" stored="true"/>
+    <field name="action_postal_code_prefix_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_sublocality_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_locality_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_natural_feature_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_establishment_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_point_of_interest_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_3_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_2_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_administrative_area_level_1_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_country_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_continent_t" type="text_nl" indexed="true" stored="true"/>
+    <field name="action_planetary_body_t" type="text_nl" indexed="true" stored="true"/>
+
+    <!-- dynamic additions just to be sure -->
     <dynamicField name="*_t" type="text_nl" indexed="true" stored="true" multiValued="true" />
     <dynamicField name="*_s" type="string" indexed="true" stored="true" multiValued="true" />
 
   </fields>
-
 
   <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
@@ -441,13 +503,25 @@
   <copyField source="resulttype" dest="text" />
   <copyField source="title" dest="text" />
 
+  <copyField source="*_admin" dest="text_admin" />
+  <copyField source="*_t" dest="text_admin" />
+  <copyField source="tag" dest="text_admin" />
+  <copyField source="collection" dest="text_admin" />
+  <copyField source="itemtype" dest="text_admin" />
+  <copyField source="resulttype" dest="text_admin" />
+  <copyField source="title" dest="text_admin" />
+  
   <!-- copying to field with omeka names for visualization purposes -->
+  
   <copyField source="tag_t" dest="tag" />
   <copyField source="1_t"  dest="main_text" />
+  <copyField source="1_t_admin"  dest="main_text_admin" />
   <copyField source="28_t" dest="url" />
   <copyField source="37_t" dest="contributor" />
+  <copyField source="37_t_admin" dest="contributor_admin" />
   <copyField source="38_t" dest="coverage" />
   <copyField source="39_t" dest="creator" />
+  <copyField source="39_t_admin" dest="creator_admin" />
   <copyField source="40_t" dest="date" />
   <copyField source="41_t" dest="description" />
   <copyField source="43_t" dest="identifier" />
@@ -462,6 +536,7 @@
   <copyField source="58_t" dest="subgenre" />
   <copyField source="59_t" dest="entry_date" />
   <copyField source="60_t" dest="collector" />
+  <copyField source="60_t_admin" dest="collector_admin" />
   <copyField source="61_t" dest="literary" />
   <copyField source="62_t" dest="extreme" />
   <copyField source="63_t" dest="named_entity" />
@@ -495,6 +570,27 @@
   <copyField source="continent_t"                   dest="continent"/>
   <copyField source="planetary_body_t"              dest="planetary_body"/>
 
+  <copyField source="action_latitude_t"                    dest="action_latitude" />
+  <copyField source="action_longitude_t"                   dest="action_longitude"/>
+  <copyField source="action_zoom_level_t"                  dest="action_zoom_level"/>
+  <copyField source="action_map_type_t"                    dest="action_map_type"/>
+  <copyField source="action_address_t"                     dest="action_address"/>
+  <copyField source="action_route_t"                       dest="action_route"/>
+  <copyField source="action_street_number_t"               dest="action_street_number"/>
+  <copyField source="action_postal_code_t"                 dest="action_postal_code"/>
+  <copyField source="action_postal_code_prefix_t"          dest="action_postal_code_prefix"/>
+  <copyField source="action_sublocality_t"                 dest="action_sublocality"/>
+  <copyField source="action_locality_t"                    dest="action_locality"/>
+  <copyField source="action_natural_feature_t"             dest="action_natural_feature"/>
+  <copyField source="action_establishment_t"               dest="action_establishment"/>
+  <copyField source="action_point_of_interest_t"           dest="action_point_of_interest"/>
+  <copyField source="action_administrative_area_level_3_t" dest="action_administrative_area_level_3"/>
+  <copyField source="action_administrative_area_level_2_t" dest="action_administrative_area_level_2"/>
+  <copyField source="action_administrative_area_level_1_t" dest="action_administrative_area_level_1"/>
+  <copyField source="action_country_t"                     dest="action_country"/>
+  <copyField source="action_continent_t"                   dest="action_continent"/>
+  <copyField source="action_planetary_body_t"              dest="action_planetary_body"/>
+  
  <!-- DEPRECATED: The defaultSearchField is consulted by various query parsers when
   parsing a query string that isn't explicit about the field.  Machine (non-user)
   generated queries are best made explicit, or they can use the "df" request parameter
