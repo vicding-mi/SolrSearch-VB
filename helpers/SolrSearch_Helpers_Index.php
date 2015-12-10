@@ -57,8 +57,7 @@ class SolrSearch_Helpers_Index
             
             if ($field->element_id == '39') {
                 if (self::get_elements_private_status_by_value($text->text, "Title", 4)){
-                    _log("ANONIMOUS VERTELLER: " . $text->text);
-//                    $doc->setMultiValue('hide_creator', true);
+//                    _log("ANONIMOUS VERTELLER: " . $text->text);
                     $doc->setMultiValue($field->indexKey(), "anoniem"); //anonymous for public
                     $doc->setMultiValue($field->facetKey(), "anoniem");
                     $doc->setMultiValue($field->indexKey() . "_admin", $text->text);
@@ -74,8 +73,7 @@ class SolrSearch_Helpers_Index
 
             elseif ($field->element_id == '60') {
                 if (self::get_elements_private_status_by_value($text->text, "Title", 9) || self::get_elements_private_status_by_value($text->text, "Title", 4)){
-                    _log("ANONIMOUS VERZAMELAAR: " . $text->text);
-//                    $doc->setMultiValue('hide_collector', true);
+//                    _log("ANONIMOUS VERZAMELAAR: " . $text->text);
                     $doc->setMultiValue($field->indexKey(), "anoniem"); //anonymous for public
                     $doc->setMultiValue($field->facetKey(), "anoniem");
                     $doc->setMultiValue($field->indexKey() . "_admin", $text->text);
@@ -359,9 +357,7 @@ class SolrSearch_Helpers_Index
     private function illegal_sql_generator($search_string, $item_id, $element_name, $collection_id){
         $db = get_db();
         $search_string = mb_convert_encoding($search_string, "CP1252", "UTF-8");
-//        _log($search_string);
         $search_string = mysql_escape_string($search_string);
-//        _log($search_string);
     	$sql = "
     	SELECT items.id, text
     	FROM {$db->Item} items 
@@ -375,7 +371,6 @@ class SolrSearch_Helpers_Index
         AND items.collection_id = '" . $collection_id . "'";
     	if ($search_string) {$sql .= "AND element_texts.text = '" . $search_string . "'"; }
     	if ($item_id) {$sql .= " AND items.id = '" . $item_id . "'"; }
-//    	_log($sql);
     	return $sql;
     }
 
@@ -411,8 +406,6 @@ class SolrSearch_Helpers_Index
         		if ($item){
         	    	if (array_key_exists("text", $item)){
                         if ($item["text"] == "ja"){
-//                            _log($item["text"]);
-//                            _log("__PERSOON FOUND TO BE PRIVE");
                             return true;
                         }
                     }
