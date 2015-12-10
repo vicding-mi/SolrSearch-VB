@@ -92,12 +92,6 @@ foreach($applied_searches as $applied_facet){
     $ordered_applied_facets[$af_t][] = $applied_facet[1];
 }
 
-/*$facet_order = get_option("solr_search_display_facets_order");
-if ($facet_order) {
-    $order = preg_split("/[\r\n]+/", $facet_order);
-} else {
-    $order = array();
-}*/
 ?>
 
 <div id="solr-form">
@@ -115,9 +109,9 @@ if ($facet_order) {
                     echo array_key_exists('q', $_GET) ? $_GET['q'] : ''; ?>" /></td>
             </tr>
           </span>
-          <?php #foreach ($order as $facet_name): ?>
           <?php foreach ($indexed as $facet_name): ?>
-              <?php $free_facet_name = str_replace("_s", "", $facet_name) . "_t"; ?>
+              <?php $free_facet_name = preg_replace('/_s_admin$/i', '_t_admin', $facet_name); ?>
+              <?php $free_facet_name = preg_replace('/_s$/i', '_t', $free_facet_name); ?>
               <tr>
                   <?php $label = __(SolrSearch_Helpers_Facet::keyToLabel($facet_name)); ?>
                   <td style="vertical-align: top;" width="100px"><strong><?php echo $label; ?></strong></td>
@@ -143,7 +137,7 @@ if ($facet_order) {
                                             $free_facet_name,
                                             $facet_search_value,
                                             array("class" => "facet-search-value",
-                                                    'style' => 'margin-bottom:0; width:50%; min-width: 85px; font-size:3em;'), 
+                                                    'style' => 'margin-bottom:0; width:50%; min-width: 85px; font-size:1.2em;'), 
                                             $selectTerms
                                         );
                                     }
@@ -172,7 +166,7 @@ if ($facet_order) {
                                         $free_facet_name,
                                         "",
                                         array("class" => "facet-search-value",
-                                            'style' => 'margin-bottom:0; width:50%; min-width: 85px; font-size:3em;'), 
+                                            'style' => 'margin-bottom:0; width:50%; min-width: 85px; font-size:1.2em;'), 
                                         $selectTerms
                                     );
                                 }

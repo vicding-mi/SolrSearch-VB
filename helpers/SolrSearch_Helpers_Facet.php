@@ -223,11 +223,12 @@ class SolrSearch_Helpers_Facet
     public static function keyToLabel($key)
     {
         $fields = get_db()->getTable('SolrSearchField');
+        $key = preg_replace('/_admin$/i', '', $key);
         if (strpos($key, '_s') !== false) {
             return $fields->findBySlug(rtrim($key, '_s'))->label;
         }
         elseif (strpos($key, '_t') !== false) {
-            return __($fields->findBySlug(rtrim($key, '_t'))->label) . "";
+            return __($fields->findBySlug(rtrim($key, '_t'))->label);
         }else{
             return ucfirst(__($key));
         }

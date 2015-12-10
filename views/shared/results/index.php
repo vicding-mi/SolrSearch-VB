@@ -171,6 +171,9 @@ $applied_facets = SolrSearch_Helpers_Facet::parseFacets();
 <?php 
 
 $facet_order = get_option("solr_search_display_facets_order");
+if ($user = current_user()){ #different facets when logged in
+    $facet_order = get_option("solr_search_admin_display_facets_order");
+}
 
 if ($facet_order) {
     $order = preg_split("/[\r\n]+/", $facet_order);

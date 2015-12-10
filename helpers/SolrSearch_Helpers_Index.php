@@ -55,15 +55,52 @@ class SolrSearch_Helpers_Index
 
             // MAKE SURE EVERYTHING IS INDEXED! AND THAT ALL DATA IS FACETED, BUT NOT SHOWN AS A FACET
             
-            // Set text field.
-            if ($field->is_indexed) {
-                $doc->setMultiValue($field->indexKey(), $text->text);
+            if ($field->element_id == '39') {
+                if (self::get_elements_private_status_by_value($text->text, "Title", 4)){
+                    _log("ANONIMOUS VERTELLER: " . $text->text);
+//                    $doc->setMultiValue('hide_creator', true);
+                    $doc->setMultiValue($field->indexKey(), "anoniem"); //anonymous for public
+                    $doc->setMultiValue($field->facetKey(), "anoniem");
+                    $doc->setMultiValue($field->indexKey() . "_admin", $text->text);
+                    $doc->setMultiValue($field->facetKey() . "_admin", $text->text);
+                }
+                else{
+                    $doc->setMultiValue($field->indexKey(), $text->text);
+                    $doc->setMultiValue($field->facetKey(), $text->text);
+                    $doc->setMultiValue($field->indexKey() . "_admin", $text->text);
+                    $doc->setMultiValue($field->facetKey() . "_admin", $text->text);
+                }
             }
 
-            // Set string field.
-            // ADJUST: MAKE AN EXTRA SETTING FOR SHOWING FACETS IN SEQUENCE ->SET ALL TO IS_FACET
-            if ($field->is_facet) {
-                $doc->setMultiValue($field->facetKey(), $text->text);
+            elseif ($field->element_id == '60') {
+                if (self::get_elements_private_status_by_value($text->text, "Title", 9) || self::get_elements_private_status_by_value($text->text, "Title", 4)){
+                    _log("ANONIMOUS VERZAMELAAR: " . $text->text);
+//                    $doc->setMultiValue('hide_collector', true);
+                    $doc->setMultiValue($field->indexKey(), "anoniem"); //anonymous for public
+                    $doc->setMultiValue($field->facetKey(), "anoniem");
+                    $doc->setMultiValue($field->indexKey() . "_admin", $text->text);
+                    $doc->setMultiValue($field->facetKey() . "_admin", $text->text);
+                }
+                else{
+                    $doc->setMultiValue($field->indexKey(), $text->text);
+                    $doc->setMultiValue($field->facetKey(), $text->text);
+                    $doc->setMultiValue($field->indexKey() . "_admin", $text->text);
+                    $doc->setMultiValue($field->facetKey() . "_admin", $text->text);
+                }
+            }
+            
+            else{ //if there are no special privacy problems:
+            
+                // Set text field.
+                if ($field->is_indexed) {
+                    $doc->setMultiValue($field->indexKey(), $text->text);
+                }
+
+                // Set string field.
+                // ADJUST: MAKE AN EXTRA SETTING FOR SHOWING FACETS IN SEQUENCE ->SET ALL TO IS_FACET
+                if ($field->is_facet) {
+                    $doc->setMultiValue($field->facetKey(), $text->text);
+                }
             }
         }
     }
@@ -140,7 +177,7 @@ class SolrSearch_Helpers_Index
         $title = metadata($item, array('Dublin Core', 'Title'));
         $doc->setField('title', $title);
 
-        // Elements:
+        // Elements 
         self::indexItem($fields, $item, $doc);
 
         // Tags:
@@ -169,7 +206,22 @@ class SolrSearch_Helpers_Index
 //        }
 
 ###############################################################################
-        //ADDITION FOR VISUALIZATIONS AND FACETS
+        //ADDITION FOR VISUALIZATIONS, FACETS AND PRIVACY --> move to indexitem
+        
+        //PRIVACY for creators, collectors and contributor:
+//        if ($text = metadata($item, array('Item Type Metadata', 'Collector'))) {
+//            if (self::get_elements_private_status_by_value($search_string, "Title", 9)){
+//                $doc->setField('hide_collector', true);
+//            }
+//        }
+
+/*        if ($text = metadata($item, array('Dublin Core', 'Contributor'))) {
+            if (get_elements_private_status_by_value($search_string, "Title", $collection_id = 4)){
+                $doc->setField('hide_collector', true);
+            }
+        }
+*/        
+        //VISUALIZATION:
         if ($itemType = $item->getItemType()) {
             $doc->setField('itemtype_id', $item->item_type_id);
         }
@@ -192,6 +244,7 @@ class SolrSearch_Helpers_Index
             $doc->setField('decennium_group', self::date_decennium($date_span[0]));
         }
 
+        // FACETS
         //text size and text size group
         if ($text = metadata($item, array('Item Type Metadata', 'Text'))) {
             $main_word_count = substr_count($text, ' ');
@@ -202,56 +255,171 @@ class SolrSearch_Helpers_Index
             $doc->setField('95_s', self::classify_length($main_word_count));
         }
         
-        //Locations
-        $db     = get_db();
-        $location = $db->getTable('Location')->findLocationByItem($item, true);
+        //Locations 
+        $db = get_db();
+        $locations = $db->getTable('Location')->findLocationByItem($item, false);
 
-        if ($location){
-            $doc->setField("latitude", $location->latitude);
-            $doc->setField("longitude", $location->longitude);
-            $doc->setField("zoom_level", $location->zoom_level);
+        if ($locations){
+            if (array_key_exists('narration_location', $locations)) {
+                $location = $locations['narration_location'];
+                $doc->setField("latitude", $location->latitude);
+                $doc->setField("longitude", $location->longitude);
+                $doc->setField("zoom_level", $location->zoom_level);
             
-            $doc->setField("map_type_t", $location->map_type);
-            $doc->setField("address_t", $location->address);
-            $doc->setField("route_t", $location->route);
-            $doc->setField("street_number_t", $location->street_number);
-            $doc->setField("postal_code_t", $location->postal_code);
-            $doc->setField("postal_code_prefix_t", $location->postal_code_prefix);
-            $doc->setField("sublocality_t", $location->sublocality);
-            $doc->setField("locality_t", $location->locality);
-            $doc->setField("natural_feature_t", $location->natural_feature);
-            $doc->setField("establishment_t", $location->establishment);
-            $doc->setField("point_of_interest_t", $location->point_of_interest);
-            $doc->setField("administrative_area_level_3_t", $location->administrative_area_level_3);
-            $doc->setField("administrative_area_level_2_t", $location->administrative_area_level_2);
-            $doc->setField("administrative_area_level_1_t", $location->administrative_area_level_1);
-            $doc->setField("country_t", $location->country);
-            $doc->setField("continent_t", $location->continent);
-            $doc->setField("planetary_body_t", $location->planetary_body);
+                $doc->setField("map_type_t", $location->map_type);
+                $doc->setField("address_t", $location->address);
+                $doc->setField("route_t", $location->route);
+                $doc->setField("street_number_t", $location->street_number);
+                $doc->setField("postal_code_t", $location->postal_code);
+                $doc->setField("postal_code_prefix_t", $location->postal_code_prefix);
+                $doc->setField("sublocality_t", $location->sublocality);
+                $doc->setField("locality_t", $location->locality);
+                $doc->setField("natural_feature_t", $location->natural_feature);
+                $doc->setField("establishment_t", $location->establishment);
+                $doc->setField("point_of_interest_t", $location->point_of_interest);
+                $doc->setField("administrative_area_level_3_t", $location->administrative_area_level_3);
+                $doc->setField("administrative_area_level_2_t", $location->administrative_area_level_2);
+                $doc->setField("administrative_area_level_1_t", $location->administrative_area_level_1);
+                $doc->setField("country_t", $location->country);
+                $doc->setField("continent_t", $location->continent);
+                $doc->setField("planetary_body_t", $location->planetary_body);
             
-            $doc->setField("map_type_s", $location->map_type);
-            $doc->setField("address_s", $location->address);
-            $doc->setField("route_s", $location->route);
-            $doc->setField("street_number_s", $location->street_number);
-            $doc->setField("postal_code_s", $location->postal_code);
-            $doc->setField("postal_code_prefix_s", $location->postal_code_prefix);
-            $doc->setField("sublocality_s", $location->sublocality);
-            $doc->setField("locality_s", $location->locality);
-            $doc->setField("natural_feature_s", $location->natural_feature);
-            $doc->setField("establishment_s", $location->establishment);
-            $doc->setField("point_of_interest_s", $location->point_of_interest);
-            $doc->setField("administrative_area_level_3_s", $location->administrative_area_level_3);
-            $doc->setField("administrative_area_level_2_s", $location->administrative_area_level_2);
-            $doc->setField("administrative_area_level_1_s", $location->administrative_area_level_1);
-            $doc->setField("country_s", $location->country);
-            $doc->setField("continent_s", $location->continent);
-            $doc->setField("planetary_body_s", $location->planetary_body);
+                $doc->setField("map_type_s", $location->map_type);
+                $doc->setField("address_s", $location->address);
+                $doc->setField("route_s", $location->route);
+                $doc->setField("street_number_s", $location->street_number);
+                $doc->setField("postal_code_s", $location->postal_code);
+                $doc->setField("postal_code_prefix_s", $location->postal_code_prefix);
+                $doc->setField("sublocality_s", $location->sublocality);
+                $doc->setField("locality_s", $location->locality);
+                $doc->setField("natural_feature_s", $location->natural_feature);
+                $doc->setField("establishment_s", $location->establishment);
+                $doc->setField("point_of_interest_s", $location->point_of_interest);
+                $doc->setField("administrative_area_level_3_s", $location->administrative_area_level_3);
+                $doc->setField("administrative_area_level_2_s", $location->administrative_area_level_2);
+                $doc->setField("administrative_area_level_1_s", $location->administrative_area_level_1);
+                $doc->setField("country_s", $location->country);
+                $doc->setField("continent_s", $location->continent);
+                $doc->setField("planetary_body_s", $location->planetary_body);
+            }
+            if (array_key_exists('action_location', $locations)) {
+                $location = $locations['action_location'];
+                $doc->setField("action_latitude", $location->latitude);
+                $doc->setField("action_longitude", $location->longitude);
+                $doc->setField("action_zoom_level", $location->zoom_level);
             
+                $doc->setField("action_map_type_t", $location->map_type);
+                $doc->setField("action_address_t", $location->address);
+                $doc->setField("action_route_t", $location->route);
+                $doc->setField("action_street_number_t", $location->street_number);
+                $doc->setField("action_postal_code_t", $location->postal_code);
+                $doc->setField("action_postal_code_prefix_t", $location->postal_code_prefix);
+                $doc->setField("action_sublocality_t", $location->sublocality);
+                $doc->setField("action_locality_t", $location->locality);
+                $doc->setField("action_natural_feature_t", $location->natural_feature);
+                $doc->setField("action_establishment_t", $location->establishment);
+                $doc->setField("action_point_of_interest_t", $location->point_of_interest);
+                $doc->setField("action_administrative_area_level_3_t", $location->administrative_area_level_3);
+                $doc->setField("action_administrative_area_level_2_t", $location->administrative_area_level_2);
+                $doc->setField("action_administrative_area_level_1_t", $location->administrative_area_level_1);
+                $doc->setField("action_country_t", $location->country);
+                $doc->setField("action_continent_t", $location->continent);
+                $doc->setField("action_planetary_body_t", $location->planetary_body);
+            
+                $doc->setField("action_map_type_s", $location->map_type);
+                $doc->setField("action_address_s", $location->address);
+                $doc->setField("action_route_s", $location->route);
+                $doc->setField("action_street_number_s", $location->street_number);
+                $doc->setField("action_postal_code_s", $location->postal_code);
+                $doc->setField("action_postal_code_prefix_s", $location->postal_code_prefix);
+                $doc->setField("action_sublocality_s", $location->sublocality);
+                $doc->setField("action_locality_s", $location->locality);
+                $doc->setField("action_natural_feature_s", $location->natural_feature);
+                $doc->setField("action_establishment_s", $location->establishment);
+                $doc->setField("action_point_of_interest_s", $location->point_of_interest);
+                $doc->setField("action_administrative_area_level_3_s", $location->administrative_area_level_3);
+                $doc->setField("action_administrative_area_level_2_s", $location->administrative_area_level_2);
+                $doc->setField("action_administrative_area_level_1_s", $location->administrative_area_level_1);
+                $doc->setField("action_country_s", $location->country);
+                $doc->setField("action_continent_s", $location->continent);
+                $doc->setField("action_planetary_body_s", $location->planetary_body);
+            }
         }
 ###############################################################################
 
         return $doc;
 
+    }
+
+    /**
+    *   This piece of code generates sql code to fetch items outside the safe environment of Omeka
+    *   
+    *
+    **/
+    private function illegal_sql_generator($search_string, $item_id, $element_name, $collection_id){
+        $db = get_db();
+        $search_string = mb_convert_encoding($search_string, "CP1252", "UTF-8");
+//        _log($search_string);
+        $search_string = mysql_escape_string($search_string);
+//        _log($search_string);
+    	$sql = "
+    	SELECT items.id, text
+    	FROM {$db->Item} items 
+    	JOIN {$db->ElementText} element_texts 
+    	ON items.id = element_texts.record_id 
+    	JOIN {$db->Element} elements 
+    	ON element_texts.element_id = elements.id 
+    	JOIN {$db->ElementSet} element_sets 
+    	ON elements.element_set_id = element_sets.id 
+    	AND elements.name = '" . $element_name . "'
+        AND items.collection_id = '" . $collection_id . "'";
+    	if ($search_string) {$sql .= "AND element_texts.text = '" . $search_string . "'"; }
+    	if ($item_id) {$sql .= " AND items.id = '" . $item_id . "'"; }
+//    	_log($sql);
+    	return $sql;
+    }
+
+    /*  Specific code for checking the "Privacy Required" value of a person 
+    * without going through the official permission system.
+    * A dirty dirty solution!
+    *
+    * Example: get_elements_private_status_by_value("Muiser, Iwe")
+    * @Returns boolean
+    */
+    private function get_elements_private_status_by_value($search_string, $element_name = "Title", $collection_id = 4){
+        $db = get_db();
+    	$config = $db->getAdapter()->getConfig();
+        $db_hack = new Zend_Db_Adapter_Pdo_Mysql(array( //call database for checking
+        	'host'     => $config["host"],
+        	'username' => $config["username"],
+        	'password' => $config["password"],
+        	'dbname'   => $config["dbname"]));
+        if (!$db->getConnection()) {
+            _log("__CONNECTION ROTTEN IN get_elements_private_status_by_value");
+            return false;
+        }
+        $sql = self::illegal_sql_generator($search_string, false, $element_name, $collection_id);
+        $stmt = $db_hack->prepare($sql);
+		$stmt->execute();
+		$itemId = $stmt->fetch();
+    	if ($itemId){
+    	    if (array_key_exists("id", $itemId)){
+        	    $sql2 = self::illegal_sql_generator(false, $itemId["id"], "Privacy Required", $collection_id);
+                $stmt = $db_hack->prepare($sql2);
+        		$stmt->execute();
+        		$item = $stmt->fetch();
+        		if ($item){
+        	    	if (array_key_exists("text", $item)){
+                        if ($item["text"] == "ja"){
+//                            _log($item["text"]);
+//                            _log("__PERSOON FOUND TO BE PRIVE");
+                            return true;
+                        }
+                    }
+                }
+            }
+    	}
+    	return false;
     }
 
 

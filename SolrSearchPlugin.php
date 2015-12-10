@@ -98,7 +98,8 @@ SQL
         }
         //folktale database extra's
         if (version_compare($args['old_version'], '2.3.0', '<=')) {
-            set_option('solr_search_display_facets_order', 'itemtype\ntag\n39_s\n44_s\n51_s\n58_s\ndecennium_group\n60_s\nlocality\nadministrative_area_level_1\n65_s\n63_s\n95_s'); //simplest setting option for showing faceet fields
+            set_option('solr_search_display_facets_order',          'itemtype\ntag\n39_s\n44_s\n51_s\n58_s\ndecennium_group\n60_s\nlocality\nadministrative_area_level_1\n65_s\n63_s\n95_s'); //simplest setting option for showing faceet fields
+            set_option('solr_search_admin_display_facets_order',    'itemtype\ntag\nadmin_39_s\n44_s\n51_s\n58_s\ndecennium_group\nadmin_60_s\nlocality\nadministrative_area_level_1\n65_s\n63_s\n95_s'); //simplest setting option for showing faceet fields
 //            $this->installGenericFacet('locality',     __('Vertelplaats'));
 //            $this->installGenericFacet('administrative_area_level_2',     __('Gemeente'));
 //            $this->installGenericFacet('administrative_area_level_1',     __('Provincie'));
@@ -387,7 +388,8 @@ SQL
         set_option('solr_search_hl_fragsize',   '250');
         set_option('solr_search_hl_max_analyzed_chars', '51200');
         set_option('solr_search_display_private_items', '1');
-        set_option('solr_search_display_facets_order', 'itemtype\ntag\n39_s\n44_s\n51_s\n58_s\ndecennium_group\n60_s\nlocality\nadministrative_area_level_1\n65_s\n63_s\n95_s'); //simplest setting option for showing faceet fields
+        set_option('solr_search_display_facets_order',          'itemtype\ntag\n39_s\n44_s\n51_s\n58_s\ndecennium_group\n60_s\nlocality\nadministrative_area_level_1\n65_s\n63_s\n95_s'); //simplest setting option for showing faceet fields
+        set_option('solr_search_admin_display_facets_order',    'itemtype\ntag\nadmin_39_s\n44_s\n51_s\n58_s\ndecennium_group\nadmin_60_s\nlocality\nadministrative_area_level_1\n65_s\n63_s\n95_s'); //simplest setting option for showing faceet fields
     }
 
 
@@ -407,6 +409,7 @@ SQL
         delete_option('solr_search_hl_max_analyzed_chars');
         delete_option('solr_search_display_private_items');
         delete_option('solr_search_display_facets_order');
+        delete_option('solr_search_admin_display_facets_order');
     }
 
 

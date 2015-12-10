@@ -103,7 +103,11 @@ class SolrSearch_ResultsController
      */
     public function init()
     {
-        $this->_fields = $this->_helper->db->getTable('SolrSearchField');
+        
+        $solr_search_fields = $this->_helper->db->getTable('SolrSearchField');
+                
+        $this->_fields = $solr_search_fields;
+        
         $this->session = new Zend_Session_Namespace();
     }
 
@@ -119,8 +123,26 @@ class SolrSearch_ResultsController
     }
 
 
-    public function searchFormAction(){
+    protected function _publicAccessIndexedRestriction(){
+        
+        // Get a list of active indexes.
         $indexed = $this->_fields->getIndexedKeys();
+        
+        //replacing returing indexes privacy sensitive fields with admin fields
+        $admin_replace = array("39_s", "60_s");
+        if ($user = current_user()){ #different idexes when logged in
+            foreach ($indexed as $ikey => $index){
+                if (in_array($index, $admin_replace)){
+                    $indexed[$ikey] = $index  . "_admin";
+                }
+            }
+        }
+        return $indexed;
+    }
+
+    public function searchFormAction(){
+        
+        $indexed = $this->_publicAccessIndexedRestriction();
         
         $this->view->indexed = $indexed;
     }
@@ -295,6 +317,10 @@ class SolrSearch_ResultsController
         foreach ($to_remove_free as $c) {
             $free = str_replace($c, '', $free);
         }
+        $to_remove_other = array('-');
+        foreach ($to_remove_other as $c) {
+            $free = str_replace($c, ' ', $free);
+        }
 
         // Form the composite Solr query.
         if (!empty($free)) $query .= " AND $free";
@@ -316,24 +342,58 @@ class SolrSearch_ResultsController
     protected function _getParameters()
     {
 
-        // Get a list of active facets.
-        $facets = $this->_fields->getActiveFacetKeys();
-
+        $facets = $this->_publicAccessFacetsRestriction();
+        $default_search_field = $this->_defaultSearchField();
+        
         return array(
-
             'facet'               => 'true',
             'facet.field'         => $facets,
             'facet.mincount'      => 1,
             'facet.limit'         => get_option('solr_search_facet_limit'),
             'facet.sort'          => get_option('solr_search_facet_sort'),
-            'hl'                  => get_option('solr_search_hl')?'true':'false',
+            'hl'                  => get_option('solr_search_hl') ? 'true' : 'false',
             'hl.snippets'         => get_option('solr_search_hl_snippets'),
             'hl.fragsize'         => get_option('solr_search_hl_fragsize'),
             'hl.maxAnalyzedChars' => get_option('solr_search_hl_max_analyzed_chars'),
-            'hl.fl'               => '*_t'
-
+            'hl.fl'               => $this->_publicAccessResultRestriction(),
+            'df'                  => $default_search_field
         );
-
+    }
+    
+    protected function _publicAccessFacetsRestriction(){
+        
+        // Get a list of active facets.
+        $facets = $this->_fields->getActiveFacetKeys();
+        
+        //replacing returing facets privacy sensitive fields with admin fields
+        $admin_replace = array("39_s", "60_s");
+        if ($user = current_user()){ #different facets when logged in
+            foreach ($facets as $fkey => $facet){
+                if (in_array($facet, $admin_replace)){
+                    $facets[$fkey] = $facet . "_admin";
+                }
+            }
+        }
+        return $facets;
+    }
+    
+    protected function _defaultSearchField(){
+        if ($user = current_user()) {
+            return "text_admin";
+        }
+        else{
+            return "text";
+        }
+    }    
+    
+    protected function _publicAccessResultRestriction(){
+        if ($user = current_user()) {
+            return "*_t"; #with "*_admin"??
+        }
+        else{ //a fairly extreme protection of privacy
+            return "*_t";
+//            return "1_t";
+        }
     }
 
 

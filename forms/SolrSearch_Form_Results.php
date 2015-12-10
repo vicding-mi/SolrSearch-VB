@@ -126,6 +126,15 @@ class SolrSearch_Form_Results extends Omeka_Form
             'rows'          => 12
         ));
 
+        // Display ADMIN facets order:
+        $this->addElement('textarea', 'solr_search_admin_display_facets_order', array(
+            'label'         => __('Display facets order for ADMINS'),
+            'description'   => __('ADMIN: The order of facets to display (internal id code). Facets that are not mentioned here are not shown. Facets that are mentioned here MUST be added as facet in Fields setting.'),
+            'value'         => get_option('solr_search_admin_display_facets_order'),
+            'required'      => false,
+            'rows'          => 12
+        ));
+
         // Submit:
         $this->addElement('submit', 'submit', array(
             'label' => __('Save Settings')
