@@ -148,10 +148,13 @@ foreach($applied_searches as $applied_facet){
                                     $simpleVocabTerm = get_db()->getTable('SimpleVocabTerm')->findByElementId(str_replace("_s", "", $facet_name));
                                     if ($simpleVocabTerm){
                                         $terms = explode("\n", $simpleVocabTerm->terms);
+                                        foreach ($terms as $key => $term) {
+                                            $terms[$key] = '"' . $term . '"';
+                                        }
                                         $selectTerms = array('' => '-') + array_combine($terms, $terms);
                                         $form_element = $this->formSelect(
                                             $free_facet_name,
-                                            $facet_search_value,
+                                            '"' . $facet_search_value . '"',
                                             array("class" => "facet-search-value",
                                                     'style' => 'margin-bottom:0; width:50%; min-width: 85px; font-size:1.2em;'), 
                                             $selectTerms
