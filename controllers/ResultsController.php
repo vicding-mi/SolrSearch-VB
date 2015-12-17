@@ -271,6 +271,7 @@ class SolrSearch_ResultsController
         $query = $this->_getQuery($limitToPublicItems);
 
         // Execute the query.
+        _log("SOLRQUERY->" . $query);
         return $solr->search($query, $offset, $limit, $params);
 
     }

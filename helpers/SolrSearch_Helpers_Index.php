@@ -205,20 +205,7 @@ class SolrSearch_Helpers_Index
 
 ###############################################################################
         //ADDITION FOR VISUALIZATIONS, FACETS AND PRIVACY --> move to indexitem
-        
-        //PRIVACY for creators, collectors and contributor:
-//        if ($text = metadata($item, array('Item Type Metadata', 'Collector'))) {
-//            if (self::get_elements_private_status_by_value($search_string, "Title", 9)){
-//                $doc->setField('hide_collector', true);
-//            }
-//        }
 
-/*        if ($text = metadata($item, array('Dublin Core', 'Contributor'))) {
-            if (get_elements_private_status_by_value($search_string, "Title", $collection_id = 4)){
-                $doc->setField('hide_collector', true);
-            }
-        }
-*/        
         //VISUALIZATION:
         if ($itemType = $item->getItemType()) {
             $doc->setField('itemtype_id', $item->item_type_id);
@@ -246,7 +233,6 @@ class SolrSearch_Helpers_Index
         //text size and text size group
         if ($text = metadata($item, array('Item Type Metadata', 'Text'))) {
             $main_word_count = substr_count($text, ' ');
-//            $main_text_length = strlen($text); // WOORDEN, NIET LENGTE STRING!!!
             $doc->setField('94_t', $main_word_count);
             $doc->setField('95_t', self::classify_length($main_word_count));
             $doc->setField('94_s', $main_word_count);
