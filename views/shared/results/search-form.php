@@ -38,7 +38,7 @@ queue_js_url("https://maps.googleapis.com/maps/api/js?sensor=false&libraries=pla
 	}
 </style>
 
-<?php if ($user = current_user()): ?>
+<?php #if ($user = current_user()): ?>
     <nav class="items-nav navigation secondary-nav">
         <ul id="section-nav" class="navigation">
             <li class="<?php if (isset($_GET['style']) &&  $_GET['style'] == 'advanced') {echo 'navigation_current';} ?>">
@@ -49,7 +49,7 @@ queue_js_url("https://maps.googleapis.com/maps/api/js?sensor=false&libraries=pla
             </li>
         </ul>
     </nav>
-<?php endif; ?>
+<?php #endif; ?>
 
 <br>
 
@@ -212,6 +212,16 @@ foreach($applied_searches as $applied_facet){
                     <?php echo $this->formText('geolocation-radius', 10, array('name'=>'geolocation-radius','size' => '10','id'=>'geolocation-radius','class'=>'textinput', "style" => "margin-bottom:0; width: 55px;")); ?>
                 </td>
             </tr>
+
+<!--            <tr>
+                <?php $label = __("Place of action") . " (radius)"; ?>
+                <td style="vertical-align: top;" width="100px"><strong><?php echo $label; ?></strong></td>
+                <td></td>
+                <td>
+                    <?php echo $this->formText('action-geolocation-address', "", array('name'=>'action-geolocation-address','id'=>'action-geolocation-address','class'=>'textinput', "style" => "margin-bottom:0; width:45%")); ?>
+                    <?php echo $this->formText('action-geolocation-radius', 10, array('name'=>'action-geolocation-radius','size' => '10','id'=>'action-geolocation-radius','class'=>'textinput', "style" => "margin-bottom:0; width: 55px;")); ?>
+                </td>
+            </tr>-->
             
             <?php if(is_allowed('Users', 'browse')): ?>
             <tr>

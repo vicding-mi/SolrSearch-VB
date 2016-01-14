@@ -169,6 +169,9 @@ $(window).load(function () {
     var input = document.getElementById('geolocation-address');
     var autocomplete = new google.maps.places.Autocomplete(input, options);
 
+//    var actioninput = document.getElementById('action-geolocation-address');
+//    var actionautocomplete = new google.maps.places.Autocomplete(actioninput, options);
+
     handleAllRemoveButtons();
     
     addButton.click(function (e) {

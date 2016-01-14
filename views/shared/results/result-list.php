@@ -54,9 +54,9 @@
         <?php endforeach; ?>
         
         <!-- Snippet if no highlighting. -->
-        <?php if (!$highlighted):?>
+        <?php #if (!$highlighted):?>
             <li class="snippet"><?php echo snippet($doc->description, 0, 200); ?></li>
-        <?php endif; ?>
+        <?php #endif; ?>
         
       </ul>
     <?php endif; ?>
