@@ -19,7 +19,8 @@ class SolrSearch_Helpers_View
         $html = '<div id="visualize-results" style="float:right;">';
         $html .= '<a href="' . url("") . 'solr-search?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '&free=' . urlencode($free) . '"><span class="icon-book3" style="font-size:2em"></span> als lijst</a>';
         $html .= '    | <a href="' . url("") . 'visuals/map?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '&free=' . urlencode($free) . '"><span class="icon-Verhalenkaart" style="font-size:2em"></span> op de kaart</a>';
-        $html .= '    | <a href="' . url("") . 'visuals/cloud?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '&free=' . urlencode($free) . '"> als wordcloud</a>';
+        $html .= '    | <a href="' . url("") . 'visuals/timeline?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '&free=' . urlencode($free) . '"><span class="icon-stats-bars" style="font-size:2em"></span> als timeline</a>';
+        $html .= '    | <a href="' . url("") . 'visuals/cloud?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '&free=' . urlencode($free) . '"><span class="icon-cloud" style="font-size:2em"></span> als wordcloud</a>';
 #        $html .= '    | <a href="' . url("") . 'visuals/network?q=' . urlencode($q) . '&facet=' . urlencode($facet) . '"> as network</a>';
         $html .= '</div>';
 
