@@ -36,7 +36,7 @@
 
     			$time = strtotime($dates[0]);
     			$year = date('Y', $time);
-//    			print_r($date_field);
+
     			echo $year;
     		?>
     	</span>

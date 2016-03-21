@@ -137,6 +137,13 @@ foreach($applied_searches as $applied_facet){
                       <?php foreach($ordered_applied_facets[$free_facet_name] as $facet_search_value): ?>
                           <div style="display: inline">
                               <?php
+                                $form_not_element = $this->formSelect(
+                                    "not-" . $free_facet_name,
+                                    "0", #$facet_not_value,
+                                    array("class" => "facet-not-value",
+                                        "style" => "margin-bottom:0;")
+                                );
+                              
                                 $form_element = "no filled form element";
                                 $form_element = $this->formText(
                                     $free_facet_name,
@@ -161,6 +168,7 @@ foreach($applied_searches as $applied_facet){
                                         );
                                     }
                                 }
+                                echo $form_not_element;
                                 echo $form_element;?>
                               <button type="button" class="remove_search" style="display:none;">-</button>
                           </div>

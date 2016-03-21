@@ -344,20 +344,20 @@ class SolrSearch_Helpers_Index
         $db = get_db();
         $search_string = mb_convert_encoding($search_string, "CP1252", "UTF-8");
         $search_string = mysql_escape_string($search_string);
-    	$sql = "
-    	SELECT items.id, text
-    	FROM {$db->Item} items 
-    	JOIN {$db->ElementText} element_texts 
-    	ON items.id = element_texts.record_id 
-    	JOIN {$db->Element} elements 
-    	ON element_texts.element_id = elements.id 
-    	JOIN {$db->ElementSet} element_sets 
-    	ON elements.element_set_id = element_sets.id 
-    	AND elements.name = '" . $element_name . "'
-        AND items.collection_id = '" . $collection_id . "'";
-    	if ($search_string) {$sql .= "AND element_texts.text = '" . $search_string . "'"; }
-    	if ($item_id) {$sql .= " AND items.id = '" . $item_id . "'"; }
-    	return $sql;
+        $sql = "
+            SELECT items.id, text
+            FROM {$db->Item} items 
+            JOIN {$db->ElementText} element_texts 
+            ON items.id = element_texts.record_id 
+            JOIN {$db->Element} elements 
+            ON element_texts.element_id = elements.id 
+            JOIN {$db->ElementSet} element_sets 
+            ON elements.element_set_id = element_sets.id 
+            AND elements.name = '" . $element_name . "'
+            AND items.collection_id = '" . $collection_id . "'";
+        if ($search_string) {$sql .= "AND element_texts.text = '" . $search_string . "'"; }
+        if ($item_id) {$sql .= " AND items.id = '" . $item_id . "'"; }
+        return $sql;
     }
 
     /*  Specific code for checking the "Privacy Required" value of a person 

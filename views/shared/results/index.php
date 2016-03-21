@@ -9,7 +9,9 @@
 
 ?>
 
-<?php queue_css_file('results'); ?>
+<?php if (!is_admin_theme()) { 
+    queue_css_file('results');
+}?>
 
 <?php echo head(array('title' => __('Solr Search')));?>
 
@@ -32,14 +34,18 @@ jQuery(window).load(function () {
                 success: function(html){
                     if(html){
                         jQuery("#solr-results").append(html);
-                        jQuery('div#loadmoreajaxloader').hide();
                     }else{
+                        jQuery('div#loadmoreajaxloader').hide();
                         jQuery('div#loadmoreajaxloader').html('<center>' + nomoreposts + '</center>');
                     }
                 }
             });
         }
     });
+
+    if(jQuery(document).height() == jQuery(window).height()){ //rounding to be sure
+        jQuery('div#loadmoreajaxloader').hide();
+    }
     
     //For showing less facets
     
