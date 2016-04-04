@@ -433,7 +433,7 @@ class SolrSearch_Helpers_Index
         }
 
         // Always index public URLs.
-        $uri = preg_replace('|/admin/|', '/', $uri, 1);
+//        $uri = preg_replace('|/admin/|', '/', $uri, 1);
 
         return $uri;
     }
