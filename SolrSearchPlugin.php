@@ -44,7 +44,7 @@ class SolrSearchPlugin extends Omeka_Plugin_AbstractPlugin
         self::_setOptions();
     }
 
-    
+
 
 
     /**
@@ -106,7 +106,7 @@ SQL
 //            $this->installGenericFacet('country',     __('Land'));
 //            $this->installGenericFacet('decennium_group',     __('Decennium'));
         }
-        
+
     }
 
 
@@ -369,7 +369,7 @@ SQL
     {
         $this->_db
             ->getTable('SolrSearchField')
-            ->installGenericFacet($slub, $label);
+            ->installGenericFacet($slug, $label);
     }
 
 

@@ -7,3 +7,4 @@ pkg
 
 tests/phpunit/solr.ini
 solr-core/collection1/data
+.idea

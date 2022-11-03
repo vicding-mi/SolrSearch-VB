@@ -54,7 +54,7 @@ class SolrSearch_Helpers_Index
             $field = $fields->findByText($text);
 
             // MAKE SURE EVERYTHING IS INDEXED! AND THAT ALL DATA IS FACETED, BUT NOT SHOWN AS A FACET
-            
+
             if ($field->element_id == '39') {
                 if (self::get_elements_private_status_by_value($text->text, "Title", 4)){
 //                    _log("ANONIMOUS VERTELLER: " . $text->text);
@@ -86,9 +86,9 @@ class SolrSearch_Helpers_Index
                     $doc->setMultiValue($field->facetKey() . "_admin", $text->text);
                 }
             }
-            
+
             else{ //if there are no special privacy problems:
-            
+
                 // Set text field.
                 if ($field->is_indexed) {
                     $doc->setMultiValue($field->indexKey(), $text->text);
@@ -175,14 +175,14 @@ class SolrSearch_Helpers_Index
         $title = metadata($item, array('Dublin Core', 'Title'));
         $doc->setField('title', $title);
 
-        // Elements 
+        // Elements
         self::indexItem($fields, $item, $doc);
 
         // Tags:
         foreach ($item->getTags() as $tag) {
             $doc->setMultiValue('tag_t', $tag->name);
             $doc->setMultiValue('tag_s', $tag->name);
-        }   
+        }
 
         // Collection:
         if ($collection = $item->getCollection()) {
@@ -238,8 +238,8 @@ class SolrSearch_Helpers_Index
             $doc->setField('94_s', $main_word_count);
             $doc->setField('95_s', self::classify_length($main_word_count));
         }
-        
-        //Locations 
+
+        //Locations
         $db = get_db();
         $locations = $db->getTable('Location')->findLocationByItem($item, false);
 
@@ -249,7 +249,7 @@ class SolrSearch_Helpers_Index
                 $doc->setField("latitude", $location->latitude);
                 $doc->setField("longitude", $location->longitude);
                 $doc->setField("zoom_level", $location->zoom_level);
-            
+
                 $doc->setField("map_type_t", $location->map_type);
                 $doc->setField("address_t", $location->address);
                 $doc->setField("route_t", $location->route);
@@ -267,7 +267,7 @@ class SolrSearch_Helpers_Index
                 $doc->setField("country_t", $location->country);
                 $doc->setField("continent_t", $location->continent);
                 $doc->setField("planetary_body_t", $location->planetary_body);
-            
+
                 $doc->setField("map_type_s", $location->map_type);
                 $doc->setField("address_s", $location->address);
                 $doc->setField("route_s", $location->route);
@@ -291,7 +291,7 @@ class SolrSearch_Helpers_Index
                 $doc->setField("action_latitude", $location->latitude);
                 $doc->setField("action_longitude", $location->longitude);
                 $doc->setField("action_zoom_level", $location->zoom_level);
-            
+
                 $doc->setField("action_map_type_t", $location->map_type);
                 $doc->setField("action_address_t", $location->address);
                 $doc->setField("action_route_t", $location->route);
@@ -309,7 +309,7 @@ class SolrSearch_Helpers_Index
                 $doc->setField("action_country_t", $location->country);
                 $doc->setField("action_continent_t", $location->continent);
                 $doc->setField("action_planetary_body_t", $location->planetary_body);
-            
+
                 $doc->setField("action_map_type_s", $location->map_type);
                 $doc->setField("action_address_s", $location->address);
                 $doc->setField("action_route_s", $location->route);
@@ -337,22 +337,22 @@ class SolrSearch_Helpers_Index
 
     /**
     *   This piece of code generates sql code to fetch items outside the safe environment of Omeka
-    *   
+    *
     *
     **/
     private function illegal_sql_generator($search_string, $item_id, $element_name, $collection_id){
         $db = get_db();
         $search_string = mb_convert_encoding($search_string, "CP1252", "UTF-8");
-        $search_string = mysql_escape_string($search_string);
+        $search_string = mysqli_escape_string($search_string);
         $sql = "
             SELECT items.id, text
-            FROM {$db->Item} items 
-            JOIN {$db->ElementText} element_texts 
-            ON items.id = element_texts.record_id 
-            JOIN {$db->Element} elements 
-            ON element_texts.element_id = elements.id 
-            JOIN {$db->ElementSet} element_sets 
-            ON elements.element_set_id = element_sets.id 
+            FROM {$db->Item} items
+            JOIN {$db->ElementText} element_texts
+            ON items.id = element_texts.record_id
+            JOIN {$db->Element} elements
+            ON element_texts.element_id = elements.id
+            JOIN {$db->ElementSet} element_sets
+            ON elements.element_set_id = element_sets.id
             AND elements.name = '" . $element_name . "'
             AND items.collection_id = '" . $collection_id . "'";
         if ($search_string) {$sql .= "AND element_texts.text = '" . $search_string . "'"; }
@@ -360,7 +360,7 @@ class SolrSearch_Helpers_Index
         return $sql;
     }
 
-    /*  Specific code for checking the "Privacy Required" value of a person 
+    /*  Specific code for checking the "Privacy Required" value of a person
     * without going through the official permission system.
     * A dirty dirty solution!
     *
