@@ -194,6 +194,12 @@ class SolrSearchFieldTable extends Omeka_Db_Table
         $this->installGenericFacet('resulttype',   __('Result Type'));
         $this->installGenericFacet('featured',     __('Featured'));
 
+        $this->installGenericFacet('locality',     __('Vertelplaats'));
+        $this->installGenericFacet('administrative_area_level_2',     __('Gemeente'));
+        $this->installGenericFacet('administrative_area_level_1',     __('Provincie'));
+        $this->installGenericFacet('country',     __('Land'));
+        $this->installGenericFacet('decennium_group',     __('Decennium'));
+
         // Element-backed facets:
         foreach ($elements->findAll() as $element) {
             $facet = new SolrSearchField($element);
