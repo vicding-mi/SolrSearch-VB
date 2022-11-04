@@ -16,7 +16,7 @@
 <script type="text/javascript" charset="utf-8">
 //<![CDATA[
 //For automatic pagination
-jQuery(window).load(function () {
+jQuery(window).on('load', function () {
 
     var loadImageURL = <?php echo js_escape(img("ajax-loader.gif")); ?>;
 
@@ -44,9 +44,9 @@ jQuery(window).load(function () {
     if(jQuery(document).height() == jQuery(window).height()){ //rounding to be sure
         jQuery('div#loadmoreajaxloader').hide();
     }
-    
+
     //For showing less facets
-    
+
     jQuery(function(){
 
     	var maxItems = 5;
@@ -55,12 +55,12 @@ jQuery(window).load(function () {
     	jQuery('.facet').each(function() {
     		var ul = jQuery(this).find('ul');
 
-    		if(ul.children('li').size() <= maxItems) return;
+    		if(ul.children('li').length <= maxItems) return;
 
     		var hiddenElements = ul.find('li:gt(' + maxItems + ')').hide();
 
-    		var showCaption = <?php echo '"[+] ' . __('Show remaining') . ' "'; ?> + hiddenElements.size();
-    		
+    		var showCaption = <?php echo '"[+] ' . __('Show remaining') . ' "'; ?> + hiddenElements.length;
+
     		ul.append(
     			jQuery('<li class="facet-show-more" style="content:+"><a href="#">' + showCaption + '</a></li>').click( function(e){
     					e.preventDefault();
@@ -108,9 +108,9 @@ jQuery(window).load(function () {
 <br>
 
 <!-- Applied free search. -->
-<?php   
+<?php
 
-$applied_freesearch = SolrSearch_Helpers_Facet::parseFreeSearch(); 
+$applied_freesearch = SolrSearch_Helpers_Facet::parseFreeSearch();
 $applied_facets = SolrSearch_Helpers_Facet::parseFacets();
 
 ?>
@@ -121,9 +121,9 @@ $applied_facets = SolrSearch_Helpers_Facet::parseFacets();
     <div id="solr-applied-facets">
         <ul>
     		<!-- Get the applied free searches. -->
-    		<?php 
+    		<?php
     			$count = 0;
-    			foreach ($applied_freesearch as $free): 
+    			foreach ($applied_freesearch as $free):
     				$count++;
     		?>
     		  <li>
@@ -139,13 +139,13 @@ $applied_facets = SolrSearch_Helpers_Facet::parseFacets();
 
     		  </li>
     		<?php
-    			endforeach;		
+    			endforeach;
     		?>
     	</ul>
 	    <ul>
     		<!-- Get the applied facets. -->
-    		<?php 
-    			foreach ($applied_facets as $fac): 
+    		<?php
+    			foreach ($applied_facets as $fac):
     				$count++;
     		?>
     		  <li>
@@ -161,18 +161,18 @@ $applied_facets = SolrSearch_Helpers_Facet::parseFacets();
 
     		  </li>
     		<?php
-    			endforeach;		
+    			endforeach;
     		?>
     	</ul>
-	
+
     	<?php if($count == 0) echo '<span>Geen filters geactiveerd</span>' ?>
     </div>
-    
+
     <?php echo SolrSearch_Helpers_View::visualize_results_functions($_REQUEST); ?>
 </div>
 
 <!-- Facets. -->
-<?php 
+<?php
 
 $facet_order = get_option("solr_search_display_facets_order");
 if ($user = current_user()){ #different facets when logged in
